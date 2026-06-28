@@ -1,0 +1,87 @@
+<h2>🏗️ 三种技术方案对比</h2>
+<p class="subtitle">需求回顾：跨平台桌面应用 | 离线查询 | 定期联网同步 | 5-10人 | 单机版</p>
+
+<div class="options">
+  <div class="option" data-choice="a" onclick="toggleSelect(this)" style="border: 2px solid var(--accent);">
+    <div class="letter">⭐ A</div>
+    <div class="content">
+      <h3>Electron + React + SQLite（推荐）</h3>
+      <p>用 Web 技术构建桌面应用，SQLite 存本地数据，Node.js 跑同步任务</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>👍 优点</h4>
+          <ul>
+            <li>真正的桌面应用体验（菜单栏、托盘、快捷键）</li>
+            <li>React 生态成熟，UI 可以做得很好看</li>
+            <li>SQLite 轻量高效，离线查询毫秒级响应</li>
+            <li>Node.js 有丰富的 HTTP 客户端库对接外部 API</li>
+            <li>可打包成安装包（.dmg / .exe / .AppImage）</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>👎 缺点</h4>
+          <ul>
+            <li>安装包较大（~150MB）</li>
+            <li>内存占用相对较高（~200MB）</li>
+            <li>开发周期中等（4-6周MVP）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="b" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>Python 后端 + 本地 Web + 桌面壳</h3>
+      <p>Python 做数据同步和查询引擎，浏览器做 UI，用轻量壳包装成桌面应用</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>👍 优点</h4>
+          <ul>
+            <li>Python 数据处理生态最强（pandas、爬虫、API对接）</li>
+            <li>DuckDB 分析型查询比 SQLite 更快（聚合/对比）</li>
+            <li>开发速度快（2-4周MVP），调试方便</li>
+            <li>前端可用任何框架，或直接用 Streamlit 省掉前端开发</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>👎 缺点</h4>
+          <ul>
+            <li>需要启动本地服务器，用户感知明显</li>
+            <li>浏览器访问不如原生桌面自然</li>
+            <li>Streamlit 方案 UI 灵活性有限</li>
+            <li>Python 打包成桌面应用（PyInstaller）体验一般</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="option" data-choice="c" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>Tauri + Vue/Svelte + Rust 同步引擎</h3>
+      <p>Tauri 做轻量桌面壳，前端用 Vue/Svelte，Rust 处理数据同步</p>
+      <div class="pros-cons">
+        <div class="pros"><h4>👍 优点</h4>
+          <ul>
+            <li>安装包极小（~10MB），内存占用低</li>
+            <li>性能优秀，启动速度快</li>
+            <li>安全性好，Rust 内存安全</li>
+          </ul>
+        </div>
+        <div class="cons"><h4>👎 缺点</h4>
+          <ul>
+            <li>Rust 学习曲线陡峭，维护成本高</li>
+            <li>数据对接/爬虫生态远不如 Python/Node</li>
+            <li>小团队如果没人懂 Rust，不可行</li>
+            <li>开发周期长（6-10周）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>推荐理由：方案 A</h3>
+  <p>Electron + React + SQLite 是<strong>桌面应用 + 离线查询</strong>场景最成熟的方案。VSCode、Notion、Figma 都用它。</p>
+  <p>数据同步部分，Node.js 完全能胜任 API 对接和定时任务。5-10 人单机使用，不需要考虑服务端并发，SQLite 在本地查询性能足够（几十万条数据毫秒响应）。</p>
+</div>

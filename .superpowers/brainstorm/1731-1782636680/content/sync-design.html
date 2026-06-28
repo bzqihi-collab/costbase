@@ -1,0 +1,90 @@
+<h2>🔄 数据同步机制</h2>
+<p class="subtitle">外部数据源 → 标准化 → 增量更新入库</p>
+
+<div class="mockup">
+  <div class="mockup-header">同步流水线</div>
+  <div class="mockup-body">
+    <pre style="font-size:13px;line-height:1.7;margin:0;color:var(--text);background:var(--surface);padding:20px;border-radius:8px;">
+  数据源层                 适配层                    存储层
+ ──────────         ──────────────────        ────────────
+
+ 🌐 BBSR API ──┐
+ (德国造价指数)  │
+                ├──► adapter_de.ts ──┐
+ 🌐 Eurostat ──┘   (标准化+汇率)     │
+                                    │
+ 🌐 国土交通省 ──► adapter_jp.ts ──┤    ┌──────────────┐
+ (日本建设物价)                     ├───►│  staging      │
+                                    │    │  临时表       │
+ 🌐 BCIS ───────► adapter_uk.ts ──┤    │  (先入暂存)   │
+ (英国造价数据)                     │    └──────┬───────┘
+                                    │           │ 校验通过
+ 🌐 自定义CSV ──► adapter_csv.ts ─┘           │
+ (手动上传)                                   ▼
+                                    ┌──────────────────┐
+                                    │   cost_items      │
+                                    │   正式表           │
+                                    │ • 新增记录         │
+                                    │ • 更新价格字段     │
+                                    │ • 旧数据标记过期   │
+                                    └──────────────────┘
+    </pre>
+  </div>
+</div>
+
+<div class="section">
+  <h3>同步策略</h3>
+  <table style="width:100%;border-collapse:collapse;font-size:13px;">
+    <tr style="border-bottom:1px solid var(--border);text-align:left;">
+      <th style="padding:8px;">策略</th><th style="padding:8px;">说明</th>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:8px;"><strong>增量更新</strong></td>
+      <td style="padding:8px;">只拉取变化的数据（按年份/季度），不全量替换</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:8px;"><strong>Staging 暂存</strong></td>
+      <td style="padding:8px;">新数据先入 staging 表，校验通过后再合并到正式表，校验失败的通知用户</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:8px;"><strong>适配器模式</strong></td>
+      <td style="padding:8px;">每个数据源一个 adapter，负责字段映射、单位转换、币种换算</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border);">
+      <td style="padding:8px;"><strong>版本保留</strong></td>
+      <td style="padding:8px;">旧数据不删除，打上 superseded 标记，可按年份回看历史数据</td>
+    </tr>
+  </table>
+</div>
+
+<div class="section">
+  <h3>定时调度</h3>
+  <pre style="font-size:13px;line-height:1.6;margin:0;color:var(--text);background:var(--surface);padding:16px;border-radius:8px;">
+  BBSR (德国)    → 每月 1 号 09:00 自动同步
+  Eurostat (欧盟) → 每季度首月 5 号
+  国土交通省 (日本) → 每月 15 号
+  BCIS (英国)     → 每季度 10 号
+
+  手动同步: 任何时候点击"立即同步全部"或单个数据源触发
+  </pre>
+</div>
+
+<div class="section">
+  <h3>冲突处理：数据源更新 vs 用户手动修正</h3>
+  <div class="pros-cons">
+    <div class="pros"><h4>✅ 自动合并</h4>
+      <ul>
+        <li>用户未修改过的字段 → 直接覆盖更新</li>
+        <li>纯新增数据 → 自动入库</li>
+      </ul>
+    </div>
+    <div class="cons"><h4>⚠️ 需人工确认</h4>
+      <ul>
+        <li>用户手动修正过的价格 → 提示冲突，用户选择保留哪个</li>
+        <li>数据源返回异常（价格波动>30%） → 标记待审核</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<p class="subtitle">同步机制这样设计合理吗？尤其冲突处理那部分？</p>

@@ -1,0 +1,70 @@
+<h2>🗄️ 数据模型设计</h2>
+<p class="subtitle">SQLite 表结构 — 中粒度，规格型号级别</p>
+
+<div class="mockup">
+  <div class="mockup-header">核心表关系</div>
+  <div class="mockup-body">
+    <pre style="font-size:12.5px;line-height:1.65;margin:0;color:var(--text);background:var(--surface);padding:20px;border-radius:8px;">
+┌──────────────────────┐
+│      regions         │  地区层级树
+│──────────────────────│
+│ id        INTEGER PK │
+│ name      TEXT       │  例: "德国"
+│ level     TEXT       │  country / state / city
+│ parent_id INTEGER FK │  自引用，形成树结构
+│ currency  TEXT       │  例: "EUR"
+│ unit_system TEXT     │  metric / imperial
+└──────────┬───────────┘
+           │
+┌──────────┴───────────┐
+│    cost_items         │  费用条目（核心表）
+│──────────────────────│
+│ id          INTEGER  │
+│ region_id   INTEGER  │  所属地区
+│ category    TEXT      │  material / labor / equipment / transport
+│ subcategory TEXT      │  例: "混凝土" "钢筋" "砌体"
+│ spec_code   TEXT      │  规格型号: "C30" "HRB400"
+│ spec_detail TEXT      │  规格补充: "泵送/非泵送"
+│ unit        TEXT      │  单位: m³ / 吨 / 工日 / 台班
+│ unit_price  REAL      │  单价
+│ price_min   REAL      │  最低价（区间）
+│ price_max   REAL      │  最高价（区间）
+│ building_type TEXT    │  residential/commercial/industrial/infra
+│ data_year   INTEGER   │  数据年份
+│ data_quarter INTEGER  │  数据季度 (1-4)
+│ source_id   INTEGER   │  数据来源
+│ notes       TEXT      │  备注
+│ created_at  TEXT      │
+│ updated_at  TEXT      │
+└──────────┬───────────┘
+           │
+┌──────────┴───────────┐       ┌──────────────────────┐
+│      sources          │       │     sync_log          │
+│──────────────────────│       │──────────────────────│
+│ id        INTEGER     │       │ id          INTEGER   │
+│ name      TEXT        │       │ source_id   INTEGER   │
+│ type      TEXT        │       │ started_at  TEXT      │
+│  api / gov_platform   │       │ finished_at TEXT      │
+│  / industry_assoc     │       │ status TEXT           │
+│ url       TEXT        │       │  success / partial    │
+│ frequency TEXT        │       │  / failed             │
+│  weekly / monthly     │       │ new_count   INTEGER   │
+│  / quarterly          │       │ updated_count INTEGER │
+│ last_sync TEXT        │       │ error_msg   TEXT      │
+│ api_config TEXT (JSON)│       └──────────────────────┘
+└──────────────────────┘
+    </pre>
+  </div>
+</div>
+
+<div class="section">
+  <h3>设计要点</h3>
+  <ul>
+    <li><strong>regions 用自引用树</strong> — 支持 国家→州/省→城市 任意层级，德国.巴伐利亚.慕尼黑 vs 新加坡（单层城市国家）都兼容</li>
+    <li><strong>cost_items 用价格区间</strong> — unit_price 是推荐值，price_min/price_max 反映市场波动范围，做报价时更灵活</li>
+    <li><strong>source_id 外键</strong> — 每条数据可追溯到来源，客户质疑时可以说明依据</li>
+    <li><strong>sync_log 记录</strong> — 每次同步有迹可查，数据更新是否成功一目了然</li>
+  </ul>
+</div>
+
+<p class="subtitle">这个数据模型覆盖面够吗？有没有遗漏的字段或表？</p>

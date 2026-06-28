@@ -1,0 +1,57 @@
+<h2>📋 设计规格文档已完成</h2>
+<p class="subtitle">保存在 docs/specs/2025-06-28-cost-knowledge-base-design.md</p>
+
+<div class="section">
+  <h3>文档包含的 12 个章节</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+    <div class="mockup"><div class="mockup-body">
+      <strong>1. 项目概述</strong><br>背景、目标、用户画像
+    </div></div>
+    <div class="mockup"><div class="mockup-body">
+      <strong>2. 数据模型</strong><br>4张表 + FTS5全文索引
+    </div></div>
+    <div class="mockup"><div class="mockup-body">
+      <strong>3. 技术架构</strong><br>Electron + React + SQLite
+    </div></div>
+    <div class="mockup"><div class="mockup-body">
+      <strong>4. 认证数据源</strong><br>🔑 欧洲/亚太/中东 共 15+ 官方来源
+    </div></div>
+    <div class="mockup"><div class="mockup-body">
+      <strong>5. 同步机制</strong><br>Adapter → Staging → 校验 → 合并
+    </div></div>
+    <div class="mockup"><div class="mockup-body">
+      <strong>6. 界面设计</strong><br>三栏布局 + 功能页面
+    </div></div>
+    <div class="mockup"><div class="mockup-body">
+      <strong>7. 数据导出</strong><br>Excel + PDF
+    </div></div>
+    <div class="mockup"><div class="mockup-body">
+      <strong>8. 非功能性需求</strong><br>性能/离线/安全
+    </div></div>
+    <div class="mockup"><div class="mockup-body">
+      <strong>9. 项目结构</strong><br>完整目录树
+    </div></div>
+    <div class="mockup"><div class="mockup-body">
+      <strong>10-12. 路线图/风险/术语</strong>
+    </div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🔑 数据可靠性说明</h3>
+  <p>第 4 章详细列出了每个目标地区的<strong>真实、可访问的官方数据源</strong>：</p>
+  <table style="width:100%;font-size:13px;">
+    <tr><td>🇪🇺 欧盟</td><td><strong>Eurostat</strong> — SDMX 2.1 API（免费）</td></tr>
+    <tr><td>🇩🇪 德国</td><td><strong>Destatis</strong> — GENESIS-Online 数据库（免费）</td></tr>
+    <tr><td>🇬🇧 英国</td><td><strong>ONS</strong> — gov.uk 月度公报（免费）</td></tr>
+    <tr><td>🇯🇵 日本</td><td><strong>MLIT</strong> + 建設物価調査会 — 月度报告（公开）</td></tr>
+    <tr><td>🇸🇬 新加坡</td><td><strong>BCA</strong> — 季度 TPI + 材料价格（免费）</td></tr>
+    <tr><td>🇦🇺 澳大利亚</td><td><strong>ABS</strong> — PPI 数据集（免费下载）</td></tr>
+    <tr><td>🇦🇪 迪拜</td><td><strong>DSC</strong> — 季度 CCI 报告（免费）</td></tr>
+    <tr><td>🇸🇦 沙特</td><td><strong>GASTAT</strong> — 月度 CCI（免费）</td></tr>
+    <tr><td>🇺🇸 美国/加拿大</td><td><strong>Gordian RSMeans</strong> — 行业标准（商业订阅）</td></tr>
+  </table>
+  <p style="margin-top:8px;font-size:12px;opacity:0.7;">每个数据源都经过验证，标注了机构类型、访问方式和更新频率。</p>
+</div>
+
+<p class="subtitle">请在终端中回复：确认无误 / 需要修改的地方</p>
