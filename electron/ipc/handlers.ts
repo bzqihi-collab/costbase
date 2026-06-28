@@ -3,6 +3,8 @@ import { getRegionTree, getRegionPath, searchRegions } from '../db/queries/regio
 import { queryCostItems, searchCostItems, getDistinctYears, getComparisonData, updateCostItemPrice } from '../db/queries/cost-items';
 import { getAllSources, getActiveSources, toggleSource } from '../db/queries/sources';
 import { getSyncLogs } from '../db/queries/sync-log';
+import { exportExcel } from '../export/excel';
+import { exportPDF } from '../export/pdf';
 
 export function registerHandlers(): void {
   // 地区
@@ -28,4 +30,14 @@ export function registerHandlers(): void {
 
   // 同步日志
   ipcMain.handle('sync-log:list', (_e, sourceId?: number) => getSyncLogs(sourceId));
+
+  // 导出
+  ipcMain.handle('export:excel', async (_e, items: any[], title: string) => {
+    await exportExcel(items, title);
+    return true;
+  });
+  ipcMain.handle('export:pdf', async (_e, items: any[], title: string) => {
+    await exportPDF(items, title);
+    return true;
+  });
 }
