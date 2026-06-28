@@ -5,6 +5,7 @@ import CostTable from './components/CostTable';
 import SearchBar from './components/SearchBar';
 import ComparisonView from './components/ComparisonView';
 import SyncManager from './components/SyncManager';
+import SettingsPanel from './components/SettingsPanel';
 import { useCostItems } from './hooks/useCostItems';
 import type { CostItemFilter } from '../shared/types';
 
@@ -69,7 +70,7 @@ export default function App() {
       {page === 'query' && <QueryPage />}
       {page === 'compare' && <ComparisonView />}
       {page === 'sync' && <SyncManager />}
-      {page === 'settings' && <PlaceholderPage title="设置" />}
+      {page === 'settings' && <SettingsPanel />}
     </Layout>
   );
 }
