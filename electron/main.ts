@@ -3,6 +3,7 @@ import path from 'path';
 import { runMigrations } from './db/migrate';
 import { seedInitialData } from './db/seed';
 import { registerHandlers } from './ipc/handlers';
+import { startScheduler } from './sync/scheduler';
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -28,6 +29,7 @@ app.whenReady().then(() => {
   runMigrations();
   seedInitialData();
   registerHandlers();
+  startScheduler();
   createWindow();
 });
 
