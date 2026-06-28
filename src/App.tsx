@@ -4,6 +4,7 @@ import FilterPanel from './components/FilterPanel';
 import CostTable from './components/CostTable';
 import SearchBar from './components/SearchBar';
 import ComparisonView from './components/ComparisonView';
+import SyncManager from './components/SyncManager';
 import { useCostItems } from './hooks/useCostItems';
 import type { CostItemFilter } from '../shared/types';
 
@@ -67,7 +68,7 @@ export default function App() {
     <Layout activePage={page} onNavigate={setPage}>
       {page === 'query' && <QueryPage />}
       {page === 'compare' && <ComparisonView />}
-      {page === 'sync' && <PlaceholderPage title="数据同步" />}
+      {page === 'sync' && <SyncManager />}
       {page === 'settings' && <PlaceholderPage title="设置" />}
     </Layout>
   );

@@ -1,10 +1,12 @@
 import { ipcMain } from 'electron';
 import { getRegionTree, getRegionPath, searchRegions } from '../db/queries/regions';
 import { queryCostItems, searchCostItems, getDistinctYears, getComparisonData, updateCostItemPrice } from '../db/queries/cost-items';
-import { getAllSources, getActiveSources, toggleSource } from '../db/queries/sources';
-import { getSyncLogs } from '../db/queries/sync-log';
+import { getAllSources, getActiveSources, toggleSource, updateSourceLastSync } from '../db/queries/sources';
+import { getSyncLogs, createSyncLog, finalizeSyncLog } from '../db/queries/sync-log';
 import { exportExcel } from '../export/excel';
 import { exportPDF } from '../export/pdf';
+import { runSync } from '../sync/pipeline';
+import { getAdapter } from '../adapters/index';
 
 export function registerHandlers(): void {
   // 地区
@@ -30,6 +32,20 @@ export function registerHandlers(): void {
 
   // 同步日志
   ipcMain.handle('sync-log:list', (_e, sourceId?: number) => getSyncLogs(sourceId));
+
+  // 手动同步触发
+  ipcMain.handle('sync:run', async (_e, sourceId: number) => {
+    const sources = getAllSources();
+    const source = sources.find(s => s.id === sourceId);
+    if (!source) throw new Error(`Source ${sourceId} not found`);
+
+    const adapter = getAdapter(source.name);
+    if (!adapter) {
+      throw new Error(`No adapter registered for source: ${source.name}`);
+    }
+
+    return await runSync(adapter);
+  });
 
   // 导出
   ipcMain.handle('export:excel', async (_e, items: any[], title: string) => {
