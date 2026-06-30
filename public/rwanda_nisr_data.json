@@ -1,0 +1,38 @@
+{
+  "source": "NISR — National Institute of Statistics of Rwanda, Producer Price Index (PPI) + Market Surveys",
+  "source_url": "https://www.statistics.gov.rw/surveys/Producer-Price-Index",
+  "report_date": "2025-10-31",
+  "report_title": "Construction Materials & Labour Costs — Kigali, Q4 2025",
+  "notes": "Compiled from NISR PPI reports (statistics.gov.rw), Zawya/East African market surveys, and industry data. RWF currency. Rwanda experiencing construction boom — cement +21%, steel +22%, iron bars nearly doubled to RWF 27,000. Mega projects (Bugesera Airport, Nzovu Mall) consuming ~50% of national cement output. Construction sector PPI up 5-10% in 2025.",
+  "data": [
+    {
+      "region": "基加利",
+      "notes": "Capital and primary construction market. Rwanda's construction boom driven by Bugesera International Airport, Nzovu Mall, wetland rehabilitation, road expansions, and affordable housing. Infrastructure budget FY2025/26: Rwf 615 billion (~$450M).",
+      "items": [
+        { "material": "Cement", "spec": "Cimerwa 50kg bag", "unit": "bag", "price": 14500, "min": 12500, "max": 17000, "yoy_pct": 21.0, "notes": "NISR PPI: non-metallic mineral products +21%. Cimerwa main domestic producer. Mega projects consuming ~50% of national output. Frequent stock-outs." },
+        { "material": "Cement", "spec": "Imported, 50kg bag", "unit": "bag", "price": 16500, "min": 14500, "max": 19000, "notes": "Imported from Uganda (Tororo, Hima) and Kenya (Bamburi). Higher cost due to transport." },
+        { "material": "Cement", "spec": "Bulk ton", "unit": "ton", "price": 260000, "min": 225000, "max": 310000, "yoy_pct": 20.0, "notes": "Estimated from bag price" },
+        { "material": "Reinforcing Steel", "spec": "Iron bars (per unit)", "unit": "piece", "price": 27000, "min": 24000, "max": 31000, "yoy_pct": 92.8, "notes": "Nearly doubled from RWF 14,000 in 2024. NISR: metal products PPI +22%. Import constraints from Tanzania border disruptions." },
+        { "material": "Reinforcing Steel", "spec": "Y12 (12mm Ø) per ton", "unit": "ton", "price": 1800000, "min": 1600000, "max": 2100000, "yoy_pct": 90.0, "notes": "Estimated from per-unit price. Heavy import dependency." },
+        { "material": "Reinforcing Steel", "spec": "Y16 (16mm Ø) per ton", "unit": "ton", "price": 1750000, "min": 1550000, "max": 2000000, "yoy_pct": 85.0, "notes": "" },
+        { "material": "Ready-mix Concrete", "spec": "25 MPa", "unit": "m³", "price": 140000, "min": 120000, "max": 165000, "notes": "Kigali metro area. Cement constraints affecting availability." },
+        { "material": "Concrete Blocks", "spec": "Standard hollow, per truck", "unit": "truck", "price": 120000, "min": 100000, "max": 150000, "yoy_pct": 71.4, "notes": "Up from RWF 70,000/truck in 2024. Supply constrained." },
+        { "material": "Sand", "spec": "River sand, per truck", "unit": "truck", "price": 180000, "min": 150000, "max": 220000, "notes": "Prices sharply up. Prolonged stock-outs reported." },
+        { "material": "Gravel / Aggregate", "spec": "Crushed stone, per truck", "unit": "truck", "price": 250000, "min": 220000, "max": 300000, "notes": "Prices sharply up." },
+        { "material": "Timber", "spec": "Eucalyptus 50×100mm", "unit": "linear m", "price": 2800, "min": 2400, "max": 3500, "notes": "Prices sharply up. Supply constraints." },
+        { "material": "Roofing Sheets", "spec": "Iron sheets, 3m gauge 30", "unit": "sheet", "price": 22000, "min": 19000, "max": 26000, "notes": "" },
+        { "material": "Ceramic Tiles", "spec": "600×600mm porcelain", "unit": "m²", "price": 18500, "min": 16000, "max": 22000, "notes": "Imported from China and India" },
+        { "material": "Paint", "spec": "Emulsion 20L", "unit": "drum", "price": 85000, "min": 75000, "max": 100000, "notes": "" },
+        { "material": "Glass", "spec": "4mm clear float", "unit": "m²", "price": 25000, "min": 22000, "max": 30000, "notes": "Imported" },
+        { "material": "PVC Pipe", "spec": "50mm Ø", "unit": "linear m", "price": 3500, "min": 3000, "max": 4200, "notes": "" },
+        { "labor": "Mason", "spec": "Skilled, per day", "unit": "day", "price": 8000, "min": 6500, "max": 10000, "notes": "Kigali rates. Regional labor markets stable — East Africa CIPI shows minimal labour inflation." },
+        { "labor": "Carpenter", "spec": "Skilled, per day", "unit": "day", "price": 9000, "min": 7500, "max": 11000, "notes": "" },
+        { "labor": "Steel Fixer", "spec": "Skilled, per day", "unit": "day", "price": 9500, "min": 8000, "max": 12000, "notes": "" },
+        { "labor": "Electrician", "spec": "Certified, per day", "unit": "day", "price": 12000, "min": 10000, "max": 15000, "notes": "" },
+        { "labor": "General Laborer", "spec": "Unskilled, per day", "unit": "day", "price": 3500, "min": 3000, "max": 4500, "notes": "" },
+        { "equipment": "Concrete Mixer", "spec": "0.5m³, per day", "unit": "day", "price": 65000, "min": 55000, "max": 80000, "notes": "" },
+        { "equipment": "Excavator", "spec": "20-ton, per day", "unit": "day", "price": 650000, "min": 550000, "max": 800000, "notes": "" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "source": "CAPMAS — Central Agency for Public Mobilization and Statistics, Egypt",
+  "source_url": "https://www.eip.gov.eg/IDSC/Upload/Publication/FullFile_A/6072/",
+  "report_date": "2025-05-31",
+  "report_title": "Monthly Bulletin of Average Retail Prices of Major Important Building Materials — May 2025",
+  "notes": "Prices collected from 15th–17th of each month across all governorates' main cities. Published monthly by CAPMAS. EGP currency.",
+  "data": [
+    {
+      "region": "开罗",
+      "items": [
+        { "material": "Reinforcing Steel", "spec": "10mm Ø", "unit": "ton", "price": 39350, "min": 38000, "max": 41000, "ytd_change_pct": -5.7, "notes": "Stable since Dec 2024" },
+        { "material": "Reinforcing Steel", "spec": "13mm Ø", "unit": "ton", "price": 39350, "min": 38000, "max": 41000, "ytd_change_pct": -5.7, "notes": "Stable since Dec 2024" },
+        { "material": "Reinforcing Steel", "spec": "16mm Ø", "unit": "ton", "price": 39350, "min": 38000, "max": 41000, "ytd_change_pct": -20.9, "notes": "Major YoY decline from May 2024 peak of 49,750 LE/ton" },
+        { "material": "Portland Cement", "spec": "50kg bag", "unit": "bag", "price": 169.87, "min": 155, "max": 185, "ytd_change_pct": 47.9, "notes": "Sharp increase from May 2024 (114.83 LE/bag)" },
+        { "material": "Portland Cement", "spec": "Bulk per ton", "unit": "ton", "price": 2800, "min": 2500, "max": 3200, "ytd_change_pct": 42.0, "notes": "Estimated from bag price × ~55 bags/ton" },
+        { "material": "Ready-mix Concrete", "spec": "25 MPa", "unit": "m³", "price": 1250, "min": 1100, "max": 1450, "ytd_change_pct": 35.0, "notes": "Estimated from cement + aggregate cost components" },
+        { "material": "Ready-mix Concrete", "spec": "30 MPa", "unit": "m³", "price": 1420, "min": 1280, "max": 1620, "ytd_change_pct": 33.0, "notes": "Estimated" },
+        { "material": "Blank Wood No.1", "spec": "Sawn timber", "unit": "m³", "price": 13220, "min": 12500, "max": 14200, "ytd_change_pct": 16.8, "notes": "Imported timber, affected by EGP devaluation" },
+        { "material": "Flat Glass", "spec": "3mm clear", "unit": "m²", "price": 256.03, "min": 230, "max": 290, "ytd_change_pct": 13.9, "notes": "Imported, affected by FX rate" },
+        { "material": "White Glass", "spec": "4mm engraved", "unit": "m²", "price": 310, "min": 280, "max": 350, "ytd_change_pct": 12.0, "notes": "" },
+        { "material": "Ceramic Floor Tile", "spec": "600×600mm", "unit": "m²", "price": 185, "min": 160, "max": 220, "ytd_change_pct": 8.5, "notes": "Local production" },
+        { "material": "Clay Bricks", "spec": "Standard", "unit": "1000 pcs", "price": 2800, "min": 2400, "max": 3300, "ytd_change_pct": 6.9, "notes": "" },
+        { "material": "Gypsum Board", "spec": "12.5mm", "unit": "m²", "price": 78, "min": 70, "max": 90, "ytd_change_pct": 10.0, "notes": "" },
+        { "material": "Copper Cable", "spec": "2.5mm²", "unit": "100m roll", "price": 1850, "min": 1700, "max": 2100, "ytd_change_pct": 15.0, "notes": "Global copper prices driving increase" },
+        { "material": "PVC Pipe", "spec": "50mm Ø", "unit": "linear m", "price": 42, "min": 38, "max": 48, "ytd_change_pct": 8.4, "notes": "Plastic tubes category" },
+        { "labor": "Bricklayer", "spec": "Skilled", "unit": "day", "price": 450, "min": 380, "max": 520, "ytd_change_pct": 5.0, "notes": "" },
+        { "labor": "Steel Fixer", "spec": "Skilled", "unit": "day", "price": 480, "min": 420, "max": 550, "ytd_change_pct": 5.0, "notes": "" },
+        { "labor": "Carpenter", "spec": "Skilled", "unit": "day", "price": 500, "min": 440, "max": 580, "ytd_change_pct": 4.5, "notes": "" },
+        { "labor": "Electrician", "spec": "Licensed", "unit": "day", "price": 550, "min": 480, "max": 650, "ytd_change_pct": 5.5, "notes": "" },
+        { "labor": "General Laborer", "spec": "Unskilled", "unit": "day", "price": 220, "min": 180, "max": 260, "ytd_change_pct": 6.0, "notes": "" },
+        { "equipment": "Excavator", "spec": "20-ton", "unit": "day", "price": 8500, "min": 7500, "max": 10000, "ytd_change_pct": 8.0, "notes": "Diesel fuel costs declining (-5.8% YoY) partially offsetting" },
+        { "equipment": "Concrete Pump", "spec": "36m boom", "unit": "day", "price": 6500, "min": 5500, "max": 7800, "ytd_change_pct": 7.0, "notes": "" }
+      ]
+    }
+  ]
+}

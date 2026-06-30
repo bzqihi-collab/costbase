@@ -2,7 +2,7 @@ import { ipcMain } from 'electron';
 import { getRegionTree, getRegionPath, searchRegions } from '../db/queries/regions';
 import { queryCostItems, searchCostItems, getDistinctYears, getComparisonData, updateCostItemPrice } from '../db/queries/cost-items';
 import { getAllSources, getActiveSources, toggleSource, updateSourceLastSync } from '../db/queries/sources';
-import { getSyncLogs, createSyncLog, finalizeSyncLog } from '../db/queries/sync-log';
+import { getSyncLogs } from '../db/queries/sync-log';
 import { exportExcel } from '../export/excel';
 import { exportPDF } from '../export/pdf';
 import { runSync } from '../sync/pipeline';
@@ -44,7 +44,10 @@ export function registerHandlers(): void {
       throw new Error(`No adapter registered for source: ${source.name}`);
     }
 
-    return await runSync(adapter);
+    console.log(`[Sync] Starting sync for source ${sourceId}: ${source.name}`);
+    const result = await runSync(adapter);
+    console.log(`[Sync] Done: ${source.name} — new: ${result.newCount}, updated: ${result.updatedCount}, conflicts: ${result.conflictCount}`);
+    return result;
   });
 
   // 导出

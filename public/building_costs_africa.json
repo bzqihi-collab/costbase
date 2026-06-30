@@ -1,0 +1,107 @@
+{
+  "source": "Compiled from Turner & Townsend GCMI 2025, AECOM Cost Guide 2025/26, RLB Africa, and national statistics offices",
+  "source_url": "https://marketintelligence.turnerandtownsend.com/",
+  "report_date": "2025-12-31",
+  "report_title": "Africa Building & Infrastructure Cost Benchmarks — Q4 2025",
+  "notes": "Composite building costs per m² include: materials, labour, preliminaries, contractor overhead & profit. Infrastructure costs per km or per m² include earthworks, pavement, drainage. All values in local currency unless noted as USD.",
+  "data": [
+    {
+      "region": "约翰内斯堡",
+      "items": [
+        { "material": "Residential — Basic", "spec": "Low-cost housing, per m²", "unit": "ZAR/m²", "price": 6500, "min": 5500, "max": 8000, "category": "building_cost", "notes": "RDP-standard. Single storey. No finishes. T&T + AECOM benchmark." },
+        { "material": "Residential — Standard", "spec": "Middle-income house, per m²", "unit": "ZAR/m²", "price": 10500, "min": 9000, "max": 12500, "category": "building_cost", "notes": "Brick & mortar. Standard finishes. 150-250m². Source: T&T GCMI 2025 + QS market." },
+        { "material": "Residential — Premium", "spec": "Luxury villa, per m²", "unit": "ZAR/m²", "price": 18500, "min": 16000, "max": 22000, "category": "building_cost", "notes": "Architect-designed. Premium finishes. Pool, landscaping. T&T benchmark." },
+        { "material": "Residential — Apartment", "spec": "Medium-rise, per m²", "unit": "ZAR/m²", "price": 12000, "min": 10000, "max": 14500, "category": "building_cost", "notes": "4-8 storeys. Lift, parking. T&T GCMI 2025: ~$780/m²." },
+        { "material": "Commercial — Office", "spec": "Grade A CBD, per m²", "unit": "ZAR/m²", "price": 18500, "min": 16500, "max": 21500, "category": "building_cost", "notes": "Premium office. HVAC, basement parking. T&T Fit-Out Guide 2026: $2,026/m²." },
+        { "material": "Commercial — Office", "spec": "Grade B suburban, per m²", "unit": "ZAR/m²", "price": 12500, "min": 11000, "max": 14500, "category": "building_cost", "notes": "Standard office park. Surface parking." },
+        { "material": "Commercial — Retail", "spec": "Shopping centre, per m²", "unit": "ZAR/m²", "price": 14500, "min": 12500, "max": 17500, "category": "building_cost", "notes": "Neighbourhood centre. T&T benchmark." },
+        { "material": "Commercial — Retail", "spec": "Regional mall, per m²", "unit": "ZAR/m²", "price": 21000, "min": 18500, "max": 25000, "category": "building_cost", "notes": "Super-regional mall. Full HVAC, escalators." },
+        { "material": "Industrial — Warehouse", "spec": "Distribution centre, per m²", "unit": "ZAR/m²", "price": 7500, "min": 6200, "max": 9200, "category": "building_cost", "notes": "Steel portal frame. Concrete floor. T&T: ~$620/m²." },
+        { "material": "Industrial — Factory", "spec": "Light industrial, per m²", "unit": "ZAR/m²", "price": 9500, "min": 8200, "max": 11500, "category": "building_cost", "notes": "Steel frame, brick infill, services." },
+        { "material": "Road — Urban", "spec": "2-lane asphalt, per km", "unit": "ZAR/km", "price": 18000000, "min": 14000000, "max": 24000000, "category": "infrastructure", "notes": "Urban road with kerbs, drainage, markings. SANRAL benchmark." },
+        { "material": "Road — Rural", "spec": "2-lane surfaced, per km", "unit": "ZAR/km", "price": 12000000, "min": 9000000, "max": 16000000, "category": "infrastructure", "notes": "Rural surfaced road. SANRAL benchmark." },
+        { "material": "Road — Gravel", "spec": "Gravel road, per km", "unit": "ZAR/km", "price": 3500000, "min": 2500000, "max": 5000000, "category": "infrastructure", "notes": "District gravel road with drainage." },
+        { "material": "Water Supply", "spec": "Pipeline 200mm Ø, per km", "unit": "ZAR/km", "price": 2800000, "min": 2200000, "max": 3800000, "category": "infrastructure", "notes": "HDPE pipe, trenching, backfill, connections." },
+        { "material": "Sanitation", "spec": "Sewer line 300mm Ø, per km", "unit": "ZAR/km", "price": 4200000, "min": 3500000, "max": 5500000, "category": "infrastructure", "notes": "Deep trench, manholes, connections." }
+      ]
+    },
+    {
+      "region": "开普敦",
+      "items": [
+        { "material": "Residential — Standard", "spec": "Middle-income house, per m²", "unit": "ZAR/m²", "price": 11500, "min": 10000, "max": 13500, "category": "building_cost", "notes": "Coastal premium ~9% over JNB." },
+        { "material": "Commercial — Office", "spec": "Grade A, per m²", "unit": "ZAR/m²", "price": 20500, "min": 18000, "max": 24000, "category": "building_cost", "notes": "Waterfront premium. T&T GCMI 2025: $1,171/m² general." }
+      ]
+    },
+    {
+      "region": "德班",
+      "items": [
+        { "material": "Residential — Standard", "spec": "Middle-income house, per m²", "unit": "ZAR/m²", "price": 9800, "min": 8500, "max": 11500, "category": "building_cost", "notes": "Port city discount ~7% vs JNB." },
+        { "material": "Industrial — Warehouse", "spec": "Distribution centre, per m²", "unit": "ZAR/m²", "price": 7000, "min": 5800, "max": 8800, "category": "building_cost", "notes": "Port proximity advantage." }
+      ]
+    },
+    {
+      "region": "内罗毕",
+      "items": [
+        { "material": "Residential — Basic", "spec": "Low-cost housing, per m²", "unit": "KES/m²", "price": 35000, "min": 28000, "max": 45000, "category": "building_cost", "notes": "Affordable housing programme benchmark." },
+        { "material": "Residential — Standard", "spec": "Middle-income house, per m²", "unit": "KES/m²", "price": 55000, "min": 45000, "max": 70000, "category": "building_cost", "notes": "T&T GCMI 2025: ~$834/m² (KES 107,600)." },
+        { "material": "Residential — Premium", "spec": "Luxury villa, per m²", "unit": "KES/m²", "price": 95000, "min": 80000, "max": 120000, "category": "building_cost", "notes": "Karen, Runda, Muthaiga areas." },
+        { "material": "Commercial — Office", "spec": "Grade A, per m²", "unit": "KES/m²", "price": 85000, "min": 72000, "max": 105000, "category": "building_cost", "notes": "T&T Fit-Out Guide 2026: ~$2,081/m² (KES 268,500)." },
+        { "material": "Industrial — Warehouse", "spec": "Distribution centre, per m²", "unit": "KES/m²", "price": 32000, "min": 26000, "max": 42000, "category": "building_cost", "notes": "Athi River, Mombasa Road." },
+        { "material": "Road — Urban", "spec": "2-lane asphalt, per km", "unit": "KES/km", "price": 85000000, "min": 70000000, "max": 110000000, "category": "infrastructure", "notes": "Kenya Urban Roads Authority benchmark." },
+        { "material": "Road — Rural", "spec": "Gravel road, per km", "unit": "KES/km", "price": 25000000, "min": 18000000, "max": 35000000, "category": "infrastructure", "notes": "KeRRA district road benchmark." }
+      ]
+    },
+    {
+      "region": "开罗",
+      "items": [
+        { "material": "Residential — Basic", "spec": "Social housing, per m²", "unit": "EGP/m²", "price": 8500, "min": 7000, "max": 10500, "category": "building_cost", "notes": "Government social housing programme." },
+        { "material": "Residential — Standard", "spec": "Middle-income apartment, per m²", "unit": "EGP/m²", "price": 14500, "min": 12000, "max": 18000, "category": "building_cost", "notes": "New Cairo, 6th October City." },
+        { "material": "Commercial — Office", "spec": "Grade A, per m²", "unit": "EGP/m²", "price": 22000, "min": 18000, "max": 28000, "category": "building_cost", "notes": "New Administrative Capital." },
+        { "material": "Road — Urban", "spec": "2-lane asphalt, per km", "unit": "EGP/km", "price": 25000000, "min": 20000000, "max": 35000000, "category": "infrastructure", "notes": "Urban road with services." }
+      ]
+    },
+    {
+      "region": "阿克拉",
+      "items": [
+        { "material": "Residential — Standard", "spec": "Middle-income house, per m²", "unit": "GHS/m²", "price": 3500, "min": 2800, "max": 4500, "category": "building_cost", "notes": "GSS Prime Building Cost Index Q4 2025." },
+        { "material": "Residential — Premium", "spec": "Luxury villa, per m²", "unit": "GHS/m²", "price": 6500, "min": 5000, "max": 8500, "category": "building_cost", "notes": "Cantonments, Airport Residential." },
+        { "material": "Commercial — Office", "spec": "Grade A, per m²", "unit": "GHS/m²", "price": 5500, "min": 4500, "max": 7000, "category": "building_cost", "notes": "Airport City, Ridge." },
+        { "material": "Road — Rural", "spec": "Gravel road, per km", "unit": "GHS/km", "price": 1800000, "min": 1400000, "max": 2400000, "category": "infrastructure", "notes": "District road." }
+      ]
+    },
+    {
+      "region": "拉各斯",
+      "items": [
+        { "material": "Residential — Standard", "spec": "Middle-income apartment, per m²", "unit": "NGN/m²", "price": 450000, "min": 350000, "max": 600000, "category": "building_cost", "notes": "T&T GCMI 2025: $1,183/m². Africa's most expensive." },
+        { "material": "Commercial — Office", "spec": "Grade A, per m²", "unit": "NGN/m²", "price": 850000, "min": 650000, "max": 1100000, "category": "building_cost", "notes": "Victoria Island, Ikoyi. T&T Fit-Out: $2,718/m²." },
+        { "material": "Road — Urban", "spec": "2-lane asphalt, per km", "unit": "NGN/km", "price": 450000000, "min": 350000000, "max": 600000000, "category": "infrastructure", "notes": "Lagos metro roads. High FX component for bitumen." }
+      ]
+    },
+    {
+      "region": "坎帕拉",
+      "items": [
+        { "material": "Residential — Standard", "spec": "Middle-income house, per m²", "unit": "UGX/m²", "price": 1800000, "min": 1500000, "max": 2200000, "category": "building_cost", "notes": "UBOS CIPI benchmark. Kampala metro." },
+        { "material": "Commercial — Office", "spec": "Grade B, per m²", "unit": "UGX/m²", "price": 2500000, "min": 2100000, "max": 3200000, "category": "building_cost", "notes": "Nakasero, Kololo." },
+        { "material": "Road — Rural", "spec": "Gravel road, per km", "unit": "UGX/km", "price": 450000000, "min": 350000000, "max": 600000000, "category": "infrastructure", "notes": "UNRA district road benchmark." }
+      ]
+    },
+    {
+      "region": "基加利",
+      "items": [
+        { "material": "Residential — Standard", "spec": "Middle-income house, per m²", "unit": "RWF/m²", "price": 370000, "min": 300000, "max": 480000, "category": "building_cost", "notes": "Kigali market survey. ~$300/m² at current FX." },
+        { "material": "Residential — Premium", "spec": "Luxury villa, per m²", "unit": "RWF/m²", "price": 700000, "min": 600000, "max": 900000, "category": "building_cost", "notes": "Nyarutarama, Kacyiru premium areas." },
+        { "material": "Commercial — Office", "spec": "Grade A, per m²", "unit": "RWF/m²", "price": 550000, "min": 450000, "max": 700000, "category": "building_cost", "notes": "Kigali CBD. Construction boom driving costs." },
+        { "material": "Road — Urban", "spec": "2-lane asphalt, per km", "unit": "RWF/km", "price": 650000000, "min": 550000000, "max": 850000000, "category": "infrastructure", "notes": "Kigali urban road. Infrastructure budget FY25/26: RWF 615B." }
+      ]
+    },
+    {
+      "region": "卢萨卡",
+      "items": [
+        { "material": "Residential — Standard", "spec": "Middle-income house, per m²", "unit": "ZMW/m²", "price": 6500, "min": 5500, "max": 8000, "category": "building_cost", "notes": "Lusaka market survey. ~$550/m² at current FX." },
+        { "material": "Residential — Premium", "spec": "Luxury villa, per m²", "unit": "ZMW/m²", "price": 12000, "min": 9500, "max": 15000, "category": "building_cost", "notes": "Kabulonga, Ibex Hill premium areas." },
+        { "material": "Commercial — Office", "spec": "Grade B, per m²", "unit": "ZMW/m²", "price": 9500, "min": 8000, "max": 12000, "category": "building_cost", "notes": "Lusaka CBD." },
+        { "material": "Road — Rural", "spec": "Gravel road, per km", "unit": "ZMW/km", "price": 3500000, "min": 2500000, "max": 5000000, "category": "infrastructure", "notes": "RDA district road." }
+      ]
+    }
+  ]
+}

@@ -33,7 +33,7 @@ const MIGRATIONS = [
       CREATE TABLE IF NOT EXISTS cost_items (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         region_id INTEGER NOT NULL REFERENCES regions(id),
-        category TEXT NOT NULL CHECK(category IN ('material','labor','equipment','transport')),
+        category TEXT NOT NULL,
         subcategory TEXT NOT NULL,
         spec_code TEXT,
         spec_detail TEXT,
@@ -43,7 +43,7 @@ const MIGRATIONS = [
         price_max REAL,
         building_type TEXT DEFAULT 'all',
         data_year INTEGER NOT NULL,
-        data_quarter INTEGER CHECK(data_quarter BETWEEN 1 AND 4),
+        data_quarter INTEGER,
         source_id INTEGER REFERENCES sources(id),
         is_manual_fix INTEGER DEFAULT 0,
         status TEXT DEFAULT 'active' CHECK(status IN ('active','superseded')),
@@ -86,6 +86,42 @@ const MIGRATIONS = [
         name TEXT NOT NULL,
         applied_at TEXT DEFAULT (datetime('now'))
       );
+    `,
+  },
+  {
+    version: 2,
+    name: 'fix_category_check',
+    sql: `
+      -- Recreate cost_items without the restrictive CHECK on category
+      CREATE TABLE IF NOT EXISTS cost_items_v2 (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        region_id INTEGER NOT NULL REFERENCES regions(id),
+        category TEXT NOT NULL,
+        subcategory TEXT NOT NULL,
+        spec_code TEXT,
+        spec_detail TEXT,
+        unit TEXT NOT NULL,
+        unit_price REAL,
+        price_min REAL,
+        price_max REAL,
+        building_type TEXT DEFAULT 'all',
+        data_year INTEGER NOT NULL,
+        data_quarter INTEGER,
+        source_id INTEGER REFERENCES sources(id),
+        is_manual_fix INTEGER DEFAULT 0,
+        status TEXT DEFAULT 'active' CHECK(status IN ('active','superseded')),
+        notes TEXT,
+        created_at TEXT DEFAULT (datetime('now')),
+        updated_at TEXT DEFAULT (datetime('now'))
+      );
+
+      INSERT OR IGNORE INTO cost_items_v2 SELECT * FROM cost_items;
+
+      DROP TABLE cost_items;
+      ALTER TABLE cost_items_v2 RENAME TO cost_items;
+
+      -- Rebuild FTS on the new table
+      INSERT INTO cost_items_fts(cost_items_fts) VALUES('rebuild');
     `,
   },
 ];

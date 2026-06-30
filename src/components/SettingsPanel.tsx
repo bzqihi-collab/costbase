@@ -1,83 +1,139 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { useT } from '../i18n/LanguageContext';
 import type { DataSource } from '../../shared/types';
 
+const card: React.CSSProperties = { padding: 20, borderRadius: 'var(--radius)', background: 'var(--bg-card)', border: '1px solid var(--border)', marginBottom: 24 };
+const h3: React.CSSProperties = { fontSize: 13, fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 14, textTransform: 'uppercase' as const, letterSpacing: 1 };
+const row: React.CSSProperties = { display: 'flex', alignItems: 'center', justifyContent: 'space-between' };
+const label: React.CSSProperties = { fontSize: 13.5, color: 'var(--text)' };
+const selectS: React.CSSProperties = { padding: '6px 10px', borderRadius: 'var(--radius-sm)', background: 'var(--bg-input)', border: '1px solid var(--border)', color: 'var(--text)', fontSize: 13 };
+
 export default function SettingsPanel() {
+  const { t } = useT();
   const [sources, setSources] = useState<DataSource[]>([]);
   const [message, setMessage] = useState('');
+  const [autoSync, setAutoSync] = useState({ enabled: false, intervalDays: 10, nextSync: null as string | null });
 
   useEffect(() => {
-    window.electronAPI.invoke('sources:all').then((data: unknown) => setSources(data as DataSource[]));
+    window.electronAPI.invoke('sources:all').then((d: unknown) => setSources(d as DataSource[]));
+    window.electronAPI.invoke('settings:auto-sync:get').then((d: unknown) => {
+      if (d) setAutoSync(d as typeof autoSync);
+    });
   }, []);
 
-  const handleImportCSV = useCallback(async () => {
-    setMessage('正在导入 CSV...');
+  const handleAutoSyncToggle = useCallback(async (enabled: boolean) => {
+    const next = { ...autoSync, enabled };
+    setAutoSync(next);
+    const result = await window.electronAPI.invoke('settings:auto-sync:set', next) as typeof autoSync;
+    if (result) setAutoSync(result);
+  }, [autoSync]);
+
+  const handleIntervalChange = useCallback(async (days: number) => {
+    const next = { ...autoSync, intervalDays: days };
+    setAutoSync(next);
+    const result = await window.electronAPI.invoke('settings:auto-sync:set', next) as typeof autoSync;
+    if (result) setAutoSync(result);
+  }, [autoSync]);
+
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  const handleImportCSV = useCallback(() => {
+    fileInputRef.current?.click();
+  }, []);
+
+  const handleFileChange = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setMessage(t('settings.importing'));
     try {
-      // Find a manual_import source or use the first available
-      const manualSource = sources.find(s => s.access_type === 'manual_import');
-      if (!manualSource) {
-        setMessage('没有可用的手动导入数据源。请先在数据源管理中创建一个。');
-        return;
+      const text = await file.text();
+      const result = await window.electronAPI.invoke('csv:import', text) as { inserted: number; errors: string[] };
+      if (result.errors?.length) {
+        setMessage(`${t('settings.import_done')} Inserted ${result.inserted} rows. Errors: ${result.errors.slice(0, 3).join('; ')}`);
+      } else {
+        setMessage(`${t('settings.import_done')} (${result.inserted} rows)`);
       }
-      await window.electronAPI.invoke('sync:run', manualSource.id);
-      setMessage('导入完成！');
-    } catch (e: any) {
-      setMessage(`导入失败: ${e.message}`);
-    }
-  }, [sources]);
+    } catch (e: any) { setMessage(`${t('settings.import_fail')}: ${e.message}`); }
+    // Reset file input
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  }, [t]);
 
   return (
-    <div className="h-full overflow-auto p-6">
-      <h2 className="mb-6 text-xl font-bold text-gray-200">设置</h2>
+    <div style={{ padding: 28, height: '100%', overflow: 'auto', background: 'var(--bg-root)' }}>
+      <h2 style={{ fontSize: 20, fontWeight: 700, color: 'var(--text)', marginBottom: 24 }}>{t('settings.title')}</h2>
 
-      <div className="mb-8">
-        <h3 className="mb-3 text-sm font-semibold text-gray-400">CSV 手动导入</h3>
-        <p className="mb-4 text-xs text-gray-500">
-          导入 CSV 格式的建筑费用数据。文件需包含列: region_id, category, subcategory, unit, data_year, unit_price
-          (可选: spec_code, spec_detail, price_min, price_max, building_type, data_quarter, notes)
-        </p>
-        <button
-          onClick={handleImportCSV}
-          className="rounded-md bg-blue-600 px-4 py-1.5 text-sm text-white hover:bg-blue-700"
-        >
-          📂 选择 CSV 文件并导入
-        </button>
-        {message && <p className="mt-2 text-xs text-gray-400">{message}</p>}
-      </div>
-
-      <div className="mb-8">
-        <h3 className="mb-3 text-sm font-semibold text-gray-400">偏好设置</h3>
-        <div className="grid gap-4 max-w-md">
-          <div className="flex items-center justify-between">
-            <label className="text-sm text-gray-300">默认显示币种</label>
-            <select className="rounded-md border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-gray-200">
-              <option>原始币种</option>
-              <option>EUR</option>
-              <option>USD</option>
-              <option>CNY</option>
+      {/* Auto Sync */}
+      <div style={card}>
+        <h3 style={h3}>⏱ Auto Sync</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 400 }}>
+          <div style={row}>
+            <span style={label}>Enable auto sync</span>
+            <input type="checkbox" checked={autoSync.enabled}
+              onChange={e => handleAutoSyncToggle(e.target.checked)} />
+          </div>
+          <div style={row}>
+            <span style={label}>Sync interval</span>
+            <select value={autoSync.intervalDays} onChange={e => handleIntervalChange(Number(e.target.value))}
+              disabled={!autoSync.enabled} style={{ ...selectS, opacity: autoSync.enabled ? 1 : 0.4 }}>
+              {[1, 3, 5, 7, 10, 15, 30].map(d => (
+                <option key={d} value={d}>Every {d} day{d > 1 ? 's' : ''}</option>
+              ))}
             </select>
           </div>
-          <div className="flex items-center justify-between">
-            <label className="text-sm text-gray-300">启动时自动检查更新</label>
-            <input type="checkbox" defaultChecked className="rounded" />
+          {autoSync.enabled && autoSync.nextSync && (
+            <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>
+              Next auto sync: {new Date(autoSync.nextSync).toLocaleString()}
+            </div>
+          )}
+          {autoSync.enabled && (
+            <p style={{ fontSize: 11.5, color: 'var(--text-muted)', lineHeight: 1.6 }}>
+              The app will automatically sync all enabled data sources on the configured interval.
+              Sync runs when the app is open. If the interval has passed while the app was closed,
+              sync will run on next launch.
+            </p>
+          )}
+        </div>
+      </div>
+
+      {/* CSV Import */}
+      <div style={card}>
+        <h3 style={h3}>{t('settings.csv')}</h3>
+        <p style={{ fontSize: 12.5, color: 'var(--text-muted)', marginBottom: 14, lineHeight: 1.7 }}>{t('settings.csv_desc')}</p>
+        <input ref={fileInputRef} type="file" accept=".csv" onChange={handleFileChange} style={{ display: 'none' }} />
+        <button onClick={handleImportCSV}
+          style={{ padding: '8px 18px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--accent)', background: 'var(--accent-bg)', color: 'var(--accent-light)', cursor: 'pointer', fontSize: 13, fontWeight: 500 }}>
+          {t('settings.csv_btn')}
+        </button>
+        {message && <p style={{ marginTop: 10, fontSize: 12, color: 'var(--text-muted)' }}>{message}</p>}
+      </div>
+
+      {/* Preferences */}
+      <div style={card}>
+        <h3 style={h3}>{t('settings.preferences')}</h3>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 14, maxWidth: 400 }}>
+          <div style={row}>
+            <span style={label}>{t('settings.currency')}</span>
+            <select style={selectS}>
+              <option>{t('settings.currency_original')}</option><option>EUR</option><option>USD</option><option>CNY</option>
+            </select>
           </div>
-          <div className="flex items-center justify-between">
-            <label className="text-sm text-gray-300">数据存储位置</label>
-            <span className="text-xs text-gray-500">%APPDATA%/costbase.db</span>
+          <div style={row}>
+            <span style={label}>{t('settings.storage')}</span>
+            <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>%APPDATA%/costbase.db</span>
           </div>
         </div>
       </div>
 
-      <div>
-        <h3 className="mb-3 text-sm font-semibold text-gray-400">数据源配置</h3>
-        <p className="text-xs text-gray-500">
-          在此添加或修改外部数据源。当前已注册 {sources.length} 个数据源。每个数据源需要一个独立的适配器模块。
-        </p>
-        <div className="mt-3 grid gap-2">
+      {/* Sources */}
+      <div style={card}>
+        <h3 style={h3}>{t('settings.sources')}</h3>
+        <p style={{ fontSize: 12.5, color: 'var(--text-muted)', marginBottom: 14 }}>{t('settings.sources_desc')}{sources.length}{t('settings.sources_suffix')}</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           {sources.map(s => (
-            <div key={s.id} className="flex items-center gap-2 rounded bg-gray-900 px-3 py-2 text-xs text-gray-400">
-              <span className="font-medium text-gray-300">{s.name}</span>
-              <span className="text-gray-600">({s.country})</span>
-              <span className="ml-auto text-gray-500">{s.access_type}</span>
+            <div key={s.id} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 12px', borderRadius: 'var(--radius-sm)', background: 'var(--bg-hover)', fontSize: 12.5 }}>
+              <span style={{ fontWeight: 500, color: 'var(--text)' }}>{s.name}</span>
+              <span style={{ color: 'var(--text-muted)' }}>({s.country})</span>
+              <span style={{ marginLeft: 'auto', color: 'var(--text-muted)', fontSize: 11 }}>{s.access_type}</span>
             </div>
           ))}
         </div>

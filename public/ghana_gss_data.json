@@ -1,0 +1,44 @@
+{
+  "source": "GSS — Ghana Statistical Service, Prime Building Cost Index (PBCI)",
+  "source_url": "https://statsghana.gov.gh/gssmain/fileUpload/Industry/February_PPI_Construction_1922025.pdf",
+  "report_date": "2025-12-31",
+  "report_title": "Prime Building Cost Index — December 2025 (Base: 2023=100)",
+  "notes": "Rebased in 2025 to 2023=100. Covers 406 items across 23 sub-groups from 489 outlets in 16 regions. Published monthly. GHS currency. Dec 2025: PBCI inflation at 4.4% YoY, materials at 2.7%, labour at 10.7%.",
+  "data": [
+    {
+      "region": "阿克拉",
+      "notes": "Greater Accra Region — national capital and largest construction market. Prices from GSS PBCI and Construction PPI reports.",
+      "items": [
+        { "material": "Cement", "spec": "Portland 50kg bag", "unit": "bag", "price": 95.00, "min": 88.00, "max": 105.00, "yoy_pct": -5.1, "notes": "GSS Dec 2025: cement prices declining. Major brands: Ghacem, Diamond Cement." },
+        { "material": "Cement", "spec": "Portland, bulk ton", "unit": "ton", "price": 1750.00, "min": 1600.00, "max": 1950.00, "yoy_pct": -4.8, "notes": "Estimated from bag price × ~55 bags/ton." },
+        { "material": "Reinforcing Steel", "spec": "10mm Ø high tensile", "unit": "ton", "price": 8500.00, "min": 7800.00, "max": 9500.00, "yoy_pct": -7.3, "notes": "GSS Dec 2025: reinforcement bars -7.3% YoY. Local production from Tema Steel." },
+        { "material": "Reinforcing Steel", "spec": "12mm Ø high tensile", "unit": "ton", "price": 8400.00, "min": 7700.00, "max": 9300.00, "yoy_pct": -7.0, "notes": "GSS Dec 2025" },
+        { "material": "Reinforcing Steel", "spec": "16mm Ø high tensile", "unit": "ton", "price": 8300.00, "min": 7600.00, "max": 9200.00, "yoy_pct": -6.8, "notes": "GSS Dec 2025" },
+        { "material": "Ready-mix Concrete", "spec": "25 MPa", "unit": "m³", "price": 580.00, "min": 520.00, "max": 660.00, "yoy_pct": 1.5, "notes": "GSS PBCI. Fine aggregate +0.4% YoY flat." },
+        { "material": "Ready-mix Concrete", "spec": "30 MPa", "unit": "m³", "price": 650.00, "min": 580.00, "max": 740.00, "yoy_pct": 1.8, "notes": "GSS PBCI" },
+        { "material": "Sand", "spec": "River sand, per ton", "unit": "ton", "price": 120.00, "min": 100.00, "max": 145.00, "yoy_pct": 0.4, "notes": "GSS: fine aggregate flat (+0.4% YoY)" },
+        { "material": "Crushed Stone", "spec": "¾ inch aggregate", "unit": "ton", "price": 180.00, "min": 155.00, "max": 210.00, "yoy_pct": 1.0, "notes": "" },
+        { "material": "Clay Bricks", "spec": "Standard solid", "unit": "1000 pcs", "price": 850.00, "min": 750.00, "max": 980.00, "yoy_pct": 3.5, "notes": "" },
+        { "material": "Concrete Blocks", "spec": "150mm hollow", "unit": "1000 pcs", "price": 4800.00, "min": 4200.00, "max": 5500.00, "yoy_pct": 2.8, "notes": "Sandcrete blocks, widely used in Ghana" },
+        { "material": "Roofing Sheets", "spec": "Aluminium, 3m", "unit": "sheet", "price": 185.00, "min": 165.00, "max": 210.00, "yoy_pct": -1.9, "notes": "GSS Dec 2025: roofing sheets -1.9% YoY" },
+        { "material": "Roofing Sheets", "spec": "Galvanized steel, 3m", "unit": "sheet", "price": 220.00, "min": 195.00, "max": 250.00, "yoy_pct": -1.5, "notes": "" },
+        { "material": "Timber", "spec": "Wawa 50×100mm", "unit": "linear m", "price": 22.00, "min": 18.00, "max": 26.00, "yoy_pct": 2.0, "notes": "Wawa is common Ghanaian timber species" },
+        { "material": "Timber", "spec": "Odum 50×150mm (hardwood)", "unit": "linear m", "price": 45.00, "min": 38.00, "max": 55.00, "yoy_pct": 2.5, "notes": "Odum is premium Ghanaian hardwood" },
+        { "material": "Plywood", "spec": "18mm exterior grade", "unit": "sheet", "price": 280.00, "min": 250.00, "max": 320.00, "yoy_pct": 1.8, "notes": "" },
+        { "material": "Ceramic Tiles", "spec": "600×600mm porcelain", "unit": "m²", "price": 85.00, "min": 70.00, "max": 105.00, "yoy_pct": 2.2, "notes": "Mostly imported from China" },
+        { "material": "Paint", "spec": "Emulsion, 20L", "unit": "drum", "price": 380.00, "min": 340.00, "max": 430.00, "yoy_pct": 1.5, "notes": "" },
+        { "material": "Plumbing Pipe", "spec": "PVC 50mm Ø", "unit": "linear m", "price": 18.00, "min": 15.00, "max": 22.00, "yoy_pct": -0.5, "notes": "GSS Dec 2025: plumbing materials -0.5% YoY" },
+        { "material": "Copper Cable", "spec": "2.5mm²", "unit": "100m roll", "price": 850.00, "min": 750.00, "max": 980.00, "yoy_pct": 3.0, "notes": "Global copper prices" },
+        { "material": "Glass", "spec": "4mm clear float", "unit": "m²", "price": 65.00, "min": 55.00, "max": 78.00, "yoy_pct": 2.0, "notes": "" },
+        { "labor": "Mason", "spec": "Skilled, per day", "unit": "day", "price": 120.00, "min": 100.00, "max": 150.00, "yoy_pct": 10.7, "notes": "GSS Dec 2025: labour costs +10.7% YoY" },
+        { "labor": "Carpenter", "spec": "Skilled, per day", "unit": "day", "price": 130.00, "min": 110.00, "max": 160.00, "yoy_pct": 10.5, "notes": "" },
+        { "labor": "Steel Fixer", "spec": "Skilled, per day", "unit": "day", "price": 135.00, "min": 115.00, "max": 165.00, "yoy_pct": 10.8, "notes": "" },
+        { "labor": "Electrician", "spec": "Certified, per day", "unit": "day", "price": 160.00, "min": 140.00, "max": 190.00, "yoy_pct": 11.0, "notes": "" },
+        { "labor": "General Laborer", "spec": "Unskilled, per day", "unit": "day", "price": 60.00, "min": 50.00, "max": 75.00, "yoy_pct": 10.2, "notes": "" },
+        { "equipment": "Concrete Mixer", "spec": "0.5m³, per day", "unit": "day", "price": 450.00, "min": 380.00, "max": 550.00, "yoy_pct": 14.9, "notes": "GSS Dec 2025: equipment inflation +14.9% highest subgroup" },
+        { "equipment": "Excavator", "spec": "20-ton, per day", "unit": "day", "price": 3500.00, "min": 3000.00, "max": 4200.00, "yoy_pct": 14.5, "notes": "" },
+        { "equipment": "Tipper Truck", "spec": "10m³, per trip (20km)", "unit": "trip", "price": 650.00, "min": 550.00, "max": 780.00, "yoy_pct": 15.0, "notes": "" }
+      ]
+    }
+  ]
+}

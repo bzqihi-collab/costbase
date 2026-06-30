@@ -1,9 +1,12 @@
 import { app, BrowserWindow } from 'electron';
-import path from 'path';
+import * as path from 'path';
 import { runMigrations } from './db/migrate';
 import { seedInitialData } from './db/seed';
 import { registerHandlers } from './ipc/handlers';
 import { startScheduler } from './sync/scheduler';
+import { registerAdapter } from './adapters/index';
+import { FileSourceAdapter, FILE_ADAPTERS } from './adapters/file-source';
+import { EurostatAdapter } from './adapters/eurostat';
 
 let mainWindow: BrowserWindow | null = null;
 
@@ -26,10 +29,19 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
-  runMigrations();
-  seedInitialData();
-  registerHandlers();
-  startScheduler();
+  try {
+    runMigrations();
+    seedInitialData();
+    // Register all data adapters
+    registerAdapter('Eurostat Construction Cost Index', new EurostatAdapter());
+    for (const [name, sourceId, filename, regionMap] of FILE_ADAPTERS) {
+      registerAdapter(name, new FileSourceAdapter(name, sourceId, filename, regionMap));
+    }
+    registerHandlers();
+    startScheduler();
+  } catch (e) {
+    console.error('Init error:', e);
+  }
   createWindow();
 });
 

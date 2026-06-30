@@ -1,10 +1,8 @@
 import React, { useState, useCallback } from 'react';
+import { useT } from '../i18n/LanguageContext';
 
-interface Props {
-  onSearch: (keyword: string) => void;
-}
-
-export default function SearchBar({ onSearch }: Props) {
+export default function SearchBar({ onSearch }: { onSearch: (keyword: string) => void }) {
+  const { t } = useT();
   const [value, setValue] = useState('');
 
   const handleSubmit = useCallback((e: React.FormEvent) => {
@@ -13,20 +11,17 @@ export default function SearchBar({ onSearch }: Props) {
   }, [value, onSearch]);
 
   return (
-    <form onSubmit={handleSubmit} className="relative">
+    <form onSubmit={handleSubmit} style={{ position: 'relative' }}>
+      <svg style={{ position: 'absolute', left: 13, top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', pointerEvents: 'none' }} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/>
+      </svg>
       <input
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="全文搜索 — 规格型号、材料名称、备注..."
-        className="w-full rounded-lg border border-gray-700 bg-gray-800 py-2 pl-4 pr-12 text-sm text-gray-200 placeholder-gray-500 focus:border-blue-500 focus:outline-none"
+        type="text" value={value} onChange={e => setValue(e.target.value)}
+        placeholder={t('query.search')}
+        style={{ width: '100%', padding: '10px 14px 10px 38px', borderRadius: 'var(--radius-sm)', background: 'var(--bg-input)', border: '1px solid var(--border)', color: 'var(--text)', fontSize: 13.5, outline: 'none', transition: 'border-color 0.15s' }}
+        onFocus={e => { e.currentTarget.style.borderColor = 'var(--accent)'; }}
+        onBlur={e => { e.currentTarget.style.borderColor = 'var(--border)'; }}
       />
-      <button
-        type="submit"
-        className="absolute right-1 top-1/2 -translate-y-1/2 rounded-md bg-blue-600 px-3 py-1 text-xs text-white hover:bg-blue-700"
-      >
-        搜索
-      </button>
     </form>
   );
 }

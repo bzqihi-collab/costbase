@@ -1,0 +1,43 @@
+name: Build
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+      - run: npx vite build
+      - run: npx electron-builder --win
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CostBase-Windows
+          path: release/CostBase Setup *.exe
+
+  macos:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+      - run: npx vite build
+      - run: npx electron-builder --mac
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: CostBase-macOS
+          path: release/*.dmg

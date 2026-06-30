@@ -1,32 +1,51 @@
 import React, { useEffect, useState } from 'react';
 import type { DataSource } from '../../shared/types';
+import { useT } from '../i18n/LanguageContext';
 
 export default function StatusBar() {
-  const [lastUpdate, setLastUpdate] = useState('数据更新: --');
-  const [sourceInfo, setSourceInfo] = useState('来源: --');
-  const [nextSync, setNextSync] = useState('下次同步: --');
+  const { t } = useT();
+  const [lastUpdate, setLastUpdate] = useState('—');
+  const [sourceCount, setSourceCount] = useState(0);
+  const [activeCount, setActiveCount] = useState(0);
+  const [nextSync, setNextSync] = useState<string | null>(null);
 
   useEffect(() => {
-    window.electronAPI.invoke('sources:all').then((data: unknown) => {
-      const sources = data as DataSource[];
-      const syncedSources = sources.filter(s => s.last_sync_at);
-      if (syncedSources.length > 0) {
-        const latest = syncedSources.sort((a, b) =>
-          new Date(b.last_sync_at!).getTime() - new Date(a.last_sync_at!).getTime()
-        )[0];
-        setLastUpdate(`数据更新: ${new Date(latest.last_sync_at!).toLocaleDateString('zh-CN')}`);
-      }
-      const activeSources = sources.filter(s => s.is_active === 1);
-      if (activeSources.length > 0) {
-        setSourceInfo(`来源: ${activeSources.map(s => s.name.split(' ')[0]).join(', ')}`);
+    window.electronAPI.invoke('sources:all').then((d: unknown) => {
+      const sources = d as DataSource[];
+      setSourceCount(sources.length);
+      setActiveCount(sources.filter(s => s.is_active === 1).length);
+      const latest = sources.filter(s => s.last_sync_at).sort((a, b) =>
+        new Date(b.last_sync_at!).getTime() - new Date(a.last_sync_at!).getTime()
+      )[0];
+      if (latest?.last_sync_at) setLastUpdate(new Date(latest.last_sync_at).toLocaleDateString('zh-CN'));
+    });
+    window.electronAPI.invoke('settings:auto-sync:get').then((d: unknown) => {
+      if (d) {
+        const cfg = d as { enabled: boolean; nextSync: string | null };
+        if (cfg.enabled && cfg.nextSync) setNextSync(new Date(cfg.nextSync).toLocaleString());
       }
     });
   }, []);
 
   return (
-    <footer className="flex items-center justify-between border-t border-gray-800 bg-gray-900 px-4 py-1.5 text-xs text-gray-500">
-      <span>{lastUpdate} | {sourceInfo}</span>
-      <span>{nextSync}</span>
+    <footer style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '5px 18px', background: 'var(--bg-sidebar)', borderTop: '1px solid var(--border)', fontSize: 11.5, color: 'var(--text-muted)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
+        <span>{t('status.sources')} <b style={{ color: 'var(--text-secondary)' }}>{sourceCount}</b></span>
+        <span style={{ width: 1, height: 12, background: 'var(--border)' }} />
+        <span>{t('status.active')} <b style={{ color: 'var(--green)' }}>{activeCount}</b></span>
+        <span style={{ width: 1, height: 12, background: 'var(--border)' }} />
+        <span>{t('status.updated')} <b style={{ color: 'var(--text-secondary)' }}>{lastUpdate}</b></span>
+        {nextSync && (
+          <>
+            <span style={{ width: 1, height: 12, background: 'var(--border)' }} />
+            <span>Next sync <b style={{ color: 'var(--accent-light)' }}>{nextSync}</b></span>
+          </>
+        )}
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+        <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--green)' }} />
+        {t('app.ready')}
+      </div>
     </footer>
   );
 }

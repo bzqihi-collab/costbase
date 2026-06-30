@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 export const costItemSchema = z.object({
   region_id: z.number().int().positive(),
-  category: z.enum(['material', 'labor', 'equipment', 'transport']),
+  category: z.enum(['material', 'labor', 'equipment', 'transport', 'building_cost', 'infrastructure', 'index']),
   subcategory: z.string().min(1).max(200),
   spec_code: z.string().max(100).nullable(),
   spec_detail: z.string().max(200).nullable(),
@@ -13,7 +13,7 @@ export const costItemSchema = z.object({
   price_max: z.number().nonnegative().nullable(),
   building_type: z.string().default('all'),
   data_year: z.number().int().min(2000).max(2100),
-  data_quarter: z.number().int().min(1).max(4),
+  data_quarter: z.number().int().min(0).max(4),
   source_id: z.number().int().positive(),
   notes: z.string().max(1000).nullable(),
 });

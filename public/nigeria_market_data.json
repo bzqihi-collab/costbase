@@ -1,0 +1,42 @@
+{
+  "source": "Nigerian Construction Market Survey — compiled from NBS, BusinessDay, and industry reports",
+  "source_url": "https://nigerianstat.gov.ng",
+  "report_date": "2025-12-31",
+  "report_title": "Nigeria Construction Materials & Labour Costs — Q4 2025",
+  "notes": "Compiled from NBS Construction Input Price Index, market surveys (BusinessDay, Guardian NG), and industry reports. NGN currency. Nigeria's construction costs heavily affected by FX volatility, imported materials dependency, and logistics constraints. Lagos is Africa's most expensive market for premium office fit-out at $2,718/m² (Turner & Townsend).",
+  "data": [
+    {
+      "region": "拉各斯",
+      "notes": "Commercial capital. Africa's most expensive construction market (T&T 2026). Cement prices elevated due to logistics costs from inland plants.",
+      "items": [
+        { "material": "Cement", "spec": "Dangote 50kg bag", "unit": "bag", "price": 8500, "min": 7500, "max": 10000, "yoy_pct": 45.0, "notes": "Dangote Cement, BUA, Lafarge main suppliers. Major price volatility through 2025. Retail prices vary significantly by location." },
+        { "material": "Cement", "spec": "BUA 50kg bag", "unit": "bag", "price": 8200, "min": 7200, "max": 9500, "yoy_pct": 42.0, "notes": "BUA Cement — slightly cheaper than Dangote" },
+        { "material": "Reinforcing Steel", "spec": "10mm Ø (per ton)", "unit": "ton", "price": 1250000, "min": 1100000, "max": 1450000, "yoy_pct": 38.0, "notes": "Local mills: Ajaokuta, Delta Steel (limited). Heavy reliance on imports. FX-driven pricing." },
+        { "material": "Reinforcing Steel", "spec": "12mm Ø (per ton)", "unit": "ton", "price": 1220000, "min": 1080000, "max": 1400000, "yoy_pct": 37.0, "notes": "" },
+        { "material": "Reinforcing Steel", "spec": "16mm Ø (per ton)", "unit": "ton", "price": 1200000, "min": 1050000, "max": 1380000, "yoy_pct": 36.0, "notes": "" },
+        { "material": "Ready-mix Concrete", "spec": "25 MPa", "unit": "m³", "price": 85000, "min": 75000, "max": 100000, "yoy_pct": 35.0, "notes": "Lagos metro area" },
+        { "material": "Ready-mix Concrete", "spec": "30 MPa", "unit": "m³", "price": 98000, "min": 85000, "max": 115000, "yoy_pct": 33.0, "notes": "" },
+        { "material": "Sand", "spec": "Sharp sand, 20t tipper", "unit": "load", "price": 280000, "min": 240000, "max": 340000, "yoy_pct": 30.0, "notes": "River sand, dredged in Lagos" },
+        { "material": "Granite Aggregate", "spec": "¾ inch, 30t tipper", "unit": "load", "price": 450000, "min": 380000, "max": 530000, "yoy_pct": 28.0, "notes": "Quarries in Abeokuta, Ibadan supplying Lagos" },
+        { "material": "Concrete Blocks", "spec": "6-inch hollow (9×6×18)", "unit": "each", "price": 650, "min": 550, "max": 800, "yoy_pct": 40.0, "notes": "Sandcrete blocks" },
+        { "material": "Concrete Blocks", "spec": "9-inch hollow (9×9×18)", "unit": "each", "price": 750, "min": 650, "max": 900, "yoy_pct": 38.0, "notes": "" },
+        { "material": "Roofing Sheets", "spec": "Aluminium 0.55mm, 3m", "unit": "sheet", "price": 18500, "min": 16000, "max": 22000, "yoy_pct": 32.0, "notes": "Long-span aluminium. Imported." },
+        { "material": "Roofing Sheets", "spec": "Stone-coated, 3m", "unit": "sheet", "price": 28000, "min": 24000, "max": 34000, "yoy_pct": 30.0, "notes": "Premium roofing" },
+        { "material": "Timber", "spec": "Hardwood 50×100mm", "unit": "linear m", "price": 1800, "min": 1500, "max": 2200, "yoy_pct": 25.0, "notes": "Mostly from Ondo, Edo states" },
+        { "material": "Plywood", "spec": "18mm marine grade", "unit": "sheet", "price": 25000, "min": 22000, "max": 30000, "yoy_pct": 28.0, "notes": "Imported" },
+        { "material": "Ceramic Tiles", "spec": "600×600mm porcelain", "unit": "m²", "price": 6500, "min": 5500, "max": 8000, "yoy_pct": 35.0, "notes": "Chinese imports dominate" },
+        { "material": "Paint", "spec": "Emulsion 20L", "unit": "drum", "price": 45000, "min": 38000, "max": 55000, "yoy_pct": 30.0, "notes": "Dulux, Meyer, Prestige brands" },
+        { "material": "Glass", "spec": "4mm clear float", "unit": "m²", "price": 8500, "min": 7500, "max": 10000, "yoy_pct": 28.0, "notes": "Imported" },
+        { "material": "Copper Cable", "spec": "2.5mm²", "unit": "100m roll", "price": 78000, "min": 68000, "max": 92000, "yoy_pct": 40.0, "notes": "Global copper + naira devaluation" },
+        { "material": "PVC Pipe", "spec": "50mm Ø", "unit": "linear m", "price": 1200, "min": 1000, "max": 1500, "yoy_pct": 32.0, "notes": "" },
+        { "labor": "Mason", "spec": "Skilled, per day", "unit": "day", "price": 12000, "min": 10000, "max": 15000, "yoy_pct": 25.0, "notes": "Lagos rates" },
+        { "labor": "Carpenter", "spec": "Skilled, per day", "unit": "day", "price": 13000, "min": 11000, "max": 16000, "yoy_pct": 24.0, "notes": "" },
+        { "labor": "Steel Fixer", "spec": "Skilled, per day", "unit": "day", "price": 14000, "min": 12000, "max": 17000, "yoy_pct": 26.0, "notes": "" },
+        { "labor": "Electrician", "spec": "Certified, per day", "unit": "day", "price": 18000, "min": 15000, "max": 22000, "yoy_pct": 28.0, "notes": "" },
+        { "labor": "General Laborer", "spec": "Unskilled, per day", "unit": "day", "price": 6000, "min": 5000, "max": 8000, "yoy_pct": 30.0, "notes": "" },
+        { "equipment": "Excavator", "spec": "20-ton, per day", "unit": "day", "price": 350000, "min": 300000, "max": 420000, "yoy_pct": 40.0, "notes": "Heavy equipment, fuel + FX costs" },
+        { "equipment": "Concrete Mixer", "spec": "0.5m³, per day", "unit": "day", "price": 45000, "min": 38000, "max": 55000, "yoy_pct": 35.0, "notes": "" }
+      ]
+    }
+  ]
+}

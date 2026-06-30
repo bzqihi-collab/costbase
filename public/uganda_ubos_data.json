@@ -1,0 +1,39 @@
+{
+  "source": "UBOS — Uganda Bureau of Statistics, Construction Input Price Index (CIPI)",
+  "source_url": "https://www.ubos.org/?pagename=explore-publications&p_id=30",
+  "report_date": "2025-10-31",
+  "report_title": "Construction Input Price Index — October 2025",
+  "notes": "Monthly CIPI published by UBOS under the Prices theme. Senior Statistician: Irene Namugenze Musitwa. UGX currency. Materials declining early 2025 due to new market entrants increasing competition. Construction sector inflation at 0.4% in Sep 2025.",
+  "data": [
+    {
+      "region": "坎帕拉",
+      "notes": "Capital and largest city. Uganda's primary construction market. UBOS CIPI tracks prices across Kampala and major urban centers.",
+      "items": [
+        { "material": "Cement", "spec": "Portland 50kg bag", "unit": "bag", "price": 35000, "min": 32000, "max": 39000, "month_change_pct": -0.2, "notes": "UBOS Feb 2025: cement -0.2% MoM. Major brands: Tororo, Hima, Kampala Cement. New market entrants increasing competition." },
+        { "material": "Cement", "spec": "Portland, bulk ton", "unit": "ton", "price": 640000, "min": 580000, "max": 720000, "month_change_pct": -0.2, "notes": "Estimated from bag price × ~55 bags/ton" },
+        { "material": "Reinforcing Steel", "spec": "Y12 (12mm Ø)", "unit": "ton", "price": 4200000, "min": 3800000, "max": 4800000, "month_change_pct": -0.3, "notes": "UBOS Feb 2025: high tensile steel bars -0.3% MoM. Roofings Ltd, Steel & Tube Industries main suppliers." },
+        { "material": "Reinforcing Steel", "spec": "Y16 (16mm Ø)", "unit": "ton", "price": 4150000, "min": 3750000, "max": 4700000, "month_change_pct": -0.3, "notes": "UBOS CIPI" },
+        { "material": "Reinforcing Steel", "spec": "Y10 (10mm Ø)", "unit": "ton", "price": 4250000, "min": 3850000, "max": 4850000, "month_change_pct": -0.3, "notes": "" },
+        { "material": "Iron & Steel Products", "spec": "Plates, rods, angles", "unit": "ton", "price": 3800000, "min": 3400000, "max": 4300000, "month_change_pct": -0.9, "notes": "UBOS Feb 2025: iron, steel & aluminium plates/rods/angles -0.9% MoM" },
+        { "material": "Ready-mix Concrete", "spec": "25 MPa", "unit": "m³", "price": 280000, "min": 250000, "max": 320000, "notes": "Estimated from cement + aggregate costs" },
+        { "material": "Ready-mix Concrete", "spec": "30 MPa", "unit": "m³", "price": 320000, "min": 285000, "max": 370000, "notes": "" },
+        { "material": "Sand", "spec": "River sand, per ton", "unit": "ton", "price": 45000, "min": 38000, "max": 55000, "month_change_pct": 0.8, "notes": "UBOS: sand +0.8% to +1.0% MoM" },
+        { "material": "Aggregate", "spec": "Crushed stone, per ton", "unit": "ton", "price": 85000, "min": 75000, "max": 100000, "month_change_pct": 0.4, "notes": "UBOS: aggregate/hardcore +0.4% MoM" },
+        { "material": "Clay Bricks", "spec": "Standard solid", "unit": "1000 pcs", "price": 350000, "min": 300000, "max": 420000, "month_change_pct": 0.3, "notes": "UBOS: clay bricks and tiles +0.3% MoM" },
+        { "material": "Timber", "spec": "Eucalyptus, 50×100mm", "unit": "linear m", "price": 8500, "min": 7500, "max": 10000, "month_change_pct": -1.5, "notes": "UBOS Feb 2025: timber -1.5% MoM, largest decline among tracked materials" },
+        { "material": "Timber — Scaffolding", "spec": "Eucalyptus props", "unit": "piece", "price": 12000, "min": 10000, "max": 15000, "month_change_pct": 1.1, "notes": "UBOS: eucalyptus props (scaffolding) +1.1% MoM" },
+        { "material": "Roofing Sheets", "spec": "Galvanized iron, 3m", "unit": "sheet", "price": 65000, "min": 58000, "max": 75000, "notes": "Roofings Ltd — local manufacturer" },
+        { "material": "Paint", "spec": "Emulsion 20L", "unit": "drum", "price": 180000, "min": 160000, "max": 210000, "month_change_pct": 0.7, "notes": "UBOS: paint and varnishes +0.7% MoM" },
+        { "material": "Glass", "spec": "4mm clear float", "unit": "m²", "price": 55000, "min": 48000, "max": 65000, "notes": "Imported, mostly from Kenya and China" },
+        { "material": "Ceramic Tiles", "spec": "600×600mm", "unit": "m²", "price": 48000, "min": 42000, "max": 58000, "notes": "Chinese imports dominate" },
+        { "material": "PVC Pipe", "spec": "50mm Ø", "unit": "linear m", "price": 12000, "min": 10000, "max": 15000, "notes": "" },
+        { "labor": "Mason", "spec": "Skilled, per day", "unit": "day", "price": 35000, "min": 30000, "max": 42000, "notes": "Kampala rates. UBOS CIPI labour index." },
+        { "labor": "Carpenter", "spec": "Skilled, per day", "unit": "day", "price": 38000, "min": 32000, "max": 45000, "notes": "" },
+        { "labor": "Steel Fixer", "spec": "Skilled, per day", "unit": "day", "price": 40000, "min": 35000, "max": 48000, "notes": "" },
+        { "labor": "General Laborer", "spec": "Unskilled, per day", "unit": "day", "price": 15000, "min": 12000, "max": 18000, "notes": "" },
+        { "equipment": "Concrete Mixer", "spec": "0.5m³, per day", "unit": "day", "price": 120000, "min": 100000, "max": 150000, "notes": "" },
+        { "equipment": "Excavator", "spec": "20-ton, per day", "unit": "day", "price": 1200000, "min": 1000000, "max": 1500000, "notes": "" }
+      ]
+    }
+  ]
+}

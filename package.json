@@ -3,18 +3,23 @@
   "version": "1.0.0",
   "description": "Construction Cost Knowledge Base - Desktop App",
   "main": "dist-electron/main.js",
+  "author": "CostBase",
   "scripts": {
-    "dev": "concurrently \"vite\" \"tsc -p tsconfig.electron.json && electron .\"",
-    "build:vite": "vite build",
-    "build:electron": "tsc -p tsconfig.electron.json",
-    "build": "npm run build:vite && npm run build:electron",
-    "pack": "npm run build && electron-builder --dir",
-    "dist": "npm run build && electron-builder",
-    "start": "npm run build:electron && electron ."
+    "dev": "vite",
+    "build": "vite build",
+    "pack": "vite build && electron-builder --dir",
+    "dist": "vite build && electron-builder",
+    "start": "vite build && electron ."
   },
   "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "exceljs": "^4.4.0",
+    "jspdf": "^4.2.1",
+    "node-cron": "^4.5.0",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "sql.js": "^1.14.1",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.1",
@@ -22,18 +27,16 @@
     "@types/node-cron": "^3.0.11",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "@types/sql.js": "^1.4.11",
     "@vitejs/plugin-react": "^6.0.3",
     "autoprefixer": "^10.5.2",
-    "better-sqlite3": "^12.11.1",
     "concurrently": "^10.0.3",
     "electron": "^42.5.0",
-    "exceljs": "^4.4.0",
-    "jspdf": "^4.2.1",
-    "node-cron": "^4.5.0",
     "postcss": "^8.5.15",
     "tailwindcss": "^4.3.1",
     "typescript": "^6.0.3",
     "vite": "^8.1.0",
-    "zod": "^4.4.3"
+    "vite-plugin-electron": "^1.1.0",
+    "vite-plugin-electron-renderer": "^1.0.0"
   }
 }

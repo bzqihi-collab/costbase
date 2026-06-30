@@ -1,0 +1,43 @@
+{
+  "source": "ZamStats — Zambia Statistics Agency + Market Surveys",
+  "source_url": "https://www.zamstats.gov.zm",
+  "report_date": "2025-09-30",
+  "report_title": "Construction Materials & Building Costs — Lusaka, Q3 2025",
+  "notes": "Compiled from ZamStats construction input data, EstimationQS building cost benchmarks, and Zambia House Plans market surveys. ZMW currency. Zambia is a major cement producer — Dangote, Lafarge, Mpande, Chilanga — with relatively competitive cement pricing. Construction costs ~$550-850/m² for residential, ~$900-1,200/m² for commercial. Zambia ranked 76th globally in T&T 2025 construction cost comparison.",
+  "data": [
+    {
+      "region": "卢萨卡",
+      "notes": "Capital and largest city. Zambia's primary construction market. Major cement producers: Dangote (1.5M tpa), Lafarge (1M tpa), Mpande, Chilanga. Competitive cement market keeps prices relatively stable.",
+      "items": [
+        { "material": "Cement", "spec": "Portland 50kg bag (Dangote)", "unit": "bag", "price": 135, "min": 120, "max": 155, "notes": "Dangote Cement Zambia — 1.5M tpa capacity. Competitive market with 4 major producers." },
+        { "material": "Cement", "spec": "Portland 50kg bag (Lafarge)", "unit": "bag", "price": 140, "min": 125, "max": 160, "notes": "Lafarge Zambia — 1M tpa capacity" },
+        { "material": "Cement", "spec": "Bulk ton", "unit": "ton", "price": 2500, "min": 2200, "max": 2900, "notes": "Estimated from bag price × ~55 bags/ton" },
+        { "material": "Reinforcing Steel", "spec": "Y12 (12mm Ø)", "unit": "ton", "price": 15500, "min": 14000, "max": 17500, "notes": "Mostly imported from South Africa and Zimbabwe. FX-dependent pricing." },
+        { "material": "Reinforcing Steel", "spec": "Y16 (16mm Ø)", "unit": "ton", "price": 15200, "min": 13800, "max": 17200, "notes": "" },
+        { "material": "Reinforcing Steel", "spec": "Y10 (10mm Ø)", "unit": "ton", "price": 15800, "min": 14200, "max": 17800, "notes": "" },
+        { "material": "Ready-mix Concrete", "spec": "25 MPa", "unit": "m³", "price": 1100, "min": 980, "max": 1280, "notes": "Lusaka metro area" },
+        { "material": "Ready-mix Concrete", "spec": "30 MPa", "unit": "m³", "price": 1250, "min": 1100, "max": 1450, "notes": "" },
+        { "material": "Concrete Blocks", "spec": "6-inch hollow", "unit": "each", "price": 12, "min": 10, "max": 15, "notes": "Concrete block construction is common in Zambia" },
+        { "material": "Clay Bricks", "spec": "Standard", "unit": "1000 pcs", "price": 2200, "min": 1900, "max": 2600, "notes": "Local brick production" },
+        { "material": "Sand", "spec": "Building sand, per ton", "unit": "ton", "price": 180, "min": 150, "max": 220, "notes": "" },
+        { "material": "Crushed Stone", "spec": "19mm aggregate, per ton", "unit": "ton", "price": 320, "min": 280, "max": 380, "notes": "Lusaka quarries" },
+        { "material": "Timber", "spec": "Pine 50×100mm", "unit": "linear m", "price": 45, "min": 38, "max": 55, "notes": "Local and imported from SA" },
+        { "material": "Timber", "spec": "Pine 50×150mm", "unit": "linear m", "price": 68, "min": 58, "max": 82, "notes": "" },
+        { "material": "Plywood", "spec": "18mm", "unit": "sheet", "price": 580, "min": 500, "max": 680, "notes": "" },
+        { "material": "Roofing Sheets", "spec": "IBR galvanized, 3m", "unit": "sheet", "price": 280, "min": 250, "max": 320, "notes": "" },
+        { "material": "Ceramic Tiles", "spec": "600×600mm porcelain", "unit": "m²", "price": 250, "min": 210, "max": 300, "notes": "Chinese imports" },
+        { "material": "Paint", "spec": "Emulsion 20L", "unit": "drum", "price": 850, "min": 750, "max": 980, "notes": "" },
+        { "material": "Glass", "spec": "4mm clear float", "unit": "m²", "price": 180, "min": 155, "max": 220, "notes": "" },
+        { "material": "Copper Cable", "spec": "2.5mm²", "unit": "100m roll", "price": 1850, "min": 1650, "max": 2200, "notes": "Zambia is a copper producer — local cable manufacturing" },
+        { "material": "PVC Pipe", "spec": "50mm Ø", "unit": "linear m", "price": 28, "min": 24, "max": 35, "notes": "" },
+        { "labor": "Mason", "spec": "Skilled, per day", "unit": "day", "price": 280, "min": 240, "max": 350, "notes": "Lusaka rates" },
+        { "labor": "Carpenter", "spec": "Skilled, per day", "unit": "day", "price": 300, "min": 260, "max": 380, "notes": "" },
+        { "labor": "Steel Fixer", "spec": "Skilled, per day", "unit": "day", "price": 310, "min": 270, "max": 390, "notes": "" },
+        { "labor": "Electrician", "spec": "Certified, per day", "unit": "day", "price": 380, "min": 320, "max": 480, "notes": "" },
+        { "labor": "General Laborer", "spec": "Unskilled, per day", "unit": "day", "price": 100, "min": 80, "max": 130, "notes": "" },
+        { "equipment": "Concrete Mixer", "spec": "0.5m³, per day", "unit": "day", "price": 650, "min": 550, "max": 800, "notes": "" },
+        { "equipment": "Excavator", "spec": "20-ton, per day", "unit": "day", "price": 6500, "min": 5500, "max": 8000, "notes": "" }
+      ]
+    }
+  ]
+}

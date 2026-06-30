@@ -1,0 +1,77 @@
+{
+  "source": "Compiled from national road authorities, T&T Infrastructure Reports, and AfDB infrastructure cost benchmarks",
+  "source_url": "https://marketintelligence.turnerandtownsend.com/",
+  "report_date": "2025-12-31",
+  "report_title": "Africa Road & Highway Construction Costs — Q4 2025",
+  "notes": "Road construction unit costs include: earthworks, pavement layers (subbase, base, wearing course), drainage, road markings, signage, and traffic management. Excludes: land acquisition, utility relocation, professional fees. Based on national road authority benchmarks (SANRAL, KeNHA, UNRA, etc.) and AfDB infrastructure unit cost database.",
+  "data": [
+    {
+      "region": "约翰内斯堡",
+      "items": [
+        { "material": "Urban Road — 2-lane asphalt", "spec": "7.4m carriageway, kerbs, drainage", "unit": "ZAR/km", "price": 18000000, "min": 14000000, "max": 24000000, "category": "infrastructure", "notes": "SANRAL Class 3 urban collector. 40mm asphalt wearing course, 150mm base, 200mm subbase." },
+        { "material": "Urban Road — 4-lane dual carriageway", "spec": "14.8m carriageway, median, streetlights", "unit": "ZAR/km", "price": 45000000, "min": 38000000, "max": 58000000, "category": "infrastructure", "notes": "SANRAL Class 2 urban arterial. Full depth asphalt, raised median, LED lighting." },
+        { "material": "Rural Road — 2-lane surfaced", "spec": "7.4m carriageway, gravel shoulders", "unit": "ZAR/km", "price": 12000000, "min": 9000000, "max": 16000000, "category": "infrastructure", "notes": "SANRAL Class 3 rural. 30mm asphalt, 150mm base, 150mm subbase." },
+        { "material": "Rural Road — 2-lane gravel", "spec": "6.0m carriageway, mitre drains", "unit": "ZAR/km", "price": 3500000, "min": 2500000, "max": 5000000, "category": "infrastructure", "notes": "District gravel road. 150mm gravel wearing course, earth drains." },
+        { "material": "Freeway — 4-lane divided", "spec": "2×7.4m carriageways, median barrier, interchanges excl.", "unit": "ZAR/km", "price": 85000000, "min": 70000000, "max": 110000000, "category": "infrastructure", "notes": "SANRAL freeway standard. Full depth asphalt, concrete median barrier. Interchanges cost additional R80-150M each." },
+        { "material": "Residential Street — paved", "spec": "5.5m carriageway, mountable kerbs", "unit": "ZAR/km", "price": 6500000, "min": 5000000, "max": 8500000, "category": "infrastructure", "notes": "Municipal standard. 25mm asphalt, 100mm base. Includes sidewalk one side." },
+        { "material": "Bridge — 2-lane, 30m span", "spec": "Reinforced concrete deck, per m²", "unit": "ZAR/m²", "price": 18500, "min": 15000, "max": 24000, "category": "infrastructure", "notes": "SANRAL standard bridge. Precast beams, insitu deck. Excludes approach earthworks." }
+      ]
+    },
+    {
+      "region": "内罗毕",
+      "items": [
+        { "material": "Urban Road — 2-lane asphalt", "spec": "7.0m carriageway, kerbs, drainage", "unit": "KES/km", "price": 85000000, "min": 70000000, "max": 110000000, "category": "infrastructure", "notes": "KeNHA Class B urban road. 40mm AC wearing course, 150mm base, 200mm subbase." },
+        { "material": "Urban Road — 4-lane dual carriageway", "spec": "14.0m carriageway, median, lights", "unit": "KES/km", "price": 220000000, "min": 180000000, "max": 280000000, "category": "infrastructure", "notes": "KeNHA Class A urban highway. Full depth asphalt, streetlights." },
+        { "material": "Rural Road — 2-lane gravel", "spec": "6.0m carriageway, mitre drains", "unit": "KES/km", "price": 25000000, "min": 18000000, "max": 35000000, "category": "infrastructure", "notes": "KeRRA district road. Gravel wearing course. Low volume rural access." },
+        { "material": "Rural Road — 2-lane asphalt", "spec": "6.5m carriageway, sealed shoulders", "unit": "KES/km", "price": 65000000, "min": 52000000, "max": 85000000, "category": "infrastructure", "notes": "KeNHA Class C rural link. 30mm AC, 150mm base." },
+        { "material": "Footbridge — pedestrian", "spec": "Steel truss, 30m span", "unit": "KES/each", "price": 18000000, "min": 14000000, "max": 24000000, "category": "infrastructure", "notes": "KeNHA standard pedestrian footbridge. Steel truss, concrete deck, stairs." }
+      ]
+    },
+    {
+      "region": "开罗",
+      "items": [
+        { "material": "Urban Road — 2-lane asphalt", "spec": "7.5m carriageway, kerbs, drainage", "unit": "EGP/km", "price": 25000000, "min": 20000000, "max": 35000000, "category": "infrastructure", "notes": "Urban road with services. 40mm AC, 200mm base." },
+        { "material": "Urban Road — 6-lane arterial", "spec": "22.5m carriageway, median, lighting", "unit": "EGP/km", "price": 85000000, "min": 70000000, "max": 110000000, "category": "infrastructure", "notes": "New Administrative Capital standard. Full depth asphalt." },
+        { "material": "Rural Road — 2-lane asphalt", "spec": "7.0m carriageway", "unit": "EGP/km", "price": 15000000, "min": 12000000, "max": 20000000, "category": "infrastructure", "notes": "Rural link road. 30mm AC, 150mm base." },
+        { "material": "Bridge — 4-lane, 50m span", "spec": "Prestressed concrete, per m²", "unit": "EGP/m²", "price": 18000, "min": 15000, "max": 24000, "category": "infrastructure", "notes": "Nile bridge standard. Cast-in-situ box girder." }
+      ]
+    },
+    {
+      "region": "阿克拉",
+      "items": [
+        { "material": "Urban Road — 2-lane asphalt", "spec": "7.3m carriageway, kerbs, drainage", "unit": "GHS/km", "price": 8500000, "min": 6500000, "max": 11000000, "category": "infrastructure", "notes": "Ghana Highway Authority urban standard. 40mm AC." },
+        { "material": "Rural Road — 2-lane gravel", "spec": "6.0m carriageway", "unit": "GHS/km", "price": 1800000, "min": 1400000, "max": 2400000, "category": "infrastructure", "notes": "Feeder road. Gravel surface, pipe culverts." },
+        { "material": "Rural Road — 2-lane asphalt", "spec": "7.0m carriageway", "unit": "GHS/km", "price": 5500000, "min": 4200000, "max": 7200000, "category": "infrastructure", "notes": "GHA trunk road. 30mm AC, 150mm base." }
+      ]
+    },
+    {
+      "region": "拉各斯",
+      "items": [
+        { "material": "Urban Road — 2-lane asphalt", "spec": "7.3m carriageway, concrete kerbs, drainage", "unit": "NGN/km", "price": 450000000, "min": 350000000, "max": 600000000, "category": "infrastructure", "notes": "Lagos metro road. High FX component for imported bitumen (~40%). 50mm AC." },
+        { "material": "Urban Road — 4-lane dual carriageway", "spec": "14.6m carriageway, median, streetlights", "unit": "NGN/km", "price": 1200000000, "min": 950000000, "max": 1600000000, "category": "infrastructure", "notes": "Lagos arterial. Includes BRT lane, walkways." },
+        { "material": "Bridge — 2-lane, 30m span", "spec": "Reinforced concrete deck, per m²", "unit": "NGN/m²", "price": 450000, "min": 350000, "max": 600000, "category": "infrastructure", "notes": "Lagos metro bridge. Precast beams." }
+      ]
+    },
+    {
+      "region": "坎帕拉",
+      "items": [
+        { "material": "Urban Road — 2-lane asphalt", "spec": "7.0m carriageway, kerbs, side drains", "unit": "UGX/km", "price": 2200000000, "min": 1800000000, "max": 2900000000, "category": "infrastructure", "notes": "KCCA urban road. 40mm AC, 150mm base. UNRA benchmark." },
+        { "material": "Rural Road — 2-lane gravel", "spec": "6.0m carriageway, mitre drains", "unit": "UGX/km", "price": 450000000, "min": 350000000, "max": 600000000, "category": "infrastructure", "notes": "UNRA district road. Gravel surface." }
+      ]
+    },
+    {
+      "region": "基加利",
+      "items": [
+        { "material": "Urban Road — 2-lane asphalt", "spec": "7.0m carriageway, cobblestone sidewalks, drainage", "unit": "RWF/km", "price": 650000000, "min": 550000000, "max": 850000000, "category": "infrastructure", "notes": "Kigali urban road. 40mm AC, 200mm base, cobblestone sidewalks (Kigali standard)." },
+        { "material": "Rural Road — 2-lane gravel", "spec": "6.0m carriageway", "unit": "RWF/km", "price": 180000000, "min": 140000000, "max": 240000000, "category": "infrastructure", "notes": "District feeder road." }
+      ]
+    },
+    {
+      "region": "卢萨卡",
+      "items": [
+        { "material": "Urban Road — 2-lane asphalt", "spec": "7.0m carriageway, kerbs, drainage", "unit": "ZMW/km", "price": 8500000, "min": 6500000, "max": 11000000, "category": "infrastructure", "notes": "RDA urban road. 40mm AC, 150mm base." },
+        { "material": "Rural Road — 2-lane gravel", "spec": "6.0m carriageway", "unit": "ZMW/km", "price": 3500000, "min": 2500000, "max": 5000000, "category": "infrastructure", "notes": "RDA district road." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "source": "SEIFSA — Steel and Engineering Industries Federation of Southern Africa",
+  "source_url": "https://www.seifsa.co.za",
+  "report_date": "2025-11-30",
+  "report_title": "SEIFSA Price Indices — November 2025",
+  "notes": "SEIFSA indices are used in the CPAP composite index for metalwork items (reinforcement, structural steel, roofing, metal fabrication). Published monthly. ZAR currency.",
+  "data": [
+    {
+      "region": "约翰内斯堡",
+      "notes": "Gauteng — primary industrial hub. SEIFSA indices for steel and engineering materials.",
+      "items": [
+        { "material": "Structural Steel Sections", "spec": "Universal Column 203×203", "unit": "ton", "price": 18700, "min": 17800, "max": 20200, "month_change_pct": 0.8, "notes": "355JR grade" },
+        { "material": "Structural Steel Sections", "spec": "Universal Beam 305×165", "unit": "ton", "price": 18300, "min": 17400, "max": 19800, "month_change_pct": 0.7, "notes": "355JR grade" },
+        { "material": "Structural Steel Sections", "spec": "Equal Angle 50×50×6", "unit": "ton", "price": 17900, "min": 17000, "max": 19300, "month_change_pct": 0.5, "notes": "355JR grade" },
+        { "material": "Structural Steel Sections", "spec": "Channel 200×75", "unit": "ton", "price": 18200, "min": 17400, "max": 19600, "month_change_pct": 0.6, "notes": "355JR grade" },
+        { "material": "Steel Plate", "spec": "6mm hot rolled", "unit": "ton", "price": 16800, "min": 16000, "max": 18200, "month_change_pct": 0.3, "notes": "S275JR grade" },
+        { "material": "Steel Plate", "spec": "10mm hot rolled", "unit": "ton", "price": 16500, "min": 15700, "max": 17800, "month_change_pct": 0.3, "notes": "S275JR grade" },
+        { "material": "Steel Plate", "spec": "16mm hot rolled", "unit": "ton", "price": 16300, "min": 15500, "max": 17600, "month_change_pct": 0.2, "notes": "S275JR grade" },
+        { "material": "Reinforcing Steel", "spec": "Y12 High Tensile", "unit": "ton", "price": 14800, "min": 14100, "max": 15800, "month_change_pct": 1.5, "notes": "450 MPa grade" },
+        { "material": "Reinforcing Steel", "spec": "Y16 High Tensile", "unit": "ton", "price": 14500, "min": 13800, "max": 15500, "month_change_pct": 1.3, "notes": "450 MPa grade" },
+        { "material": "Reinforcing Steel", "spec": "Y20 High Tensile", "unit": "ton", "price": 14300, "min": 13600, "max": 15300, "month_change_pct": 1.2, "notes": "450 MPa grade" },
+        { "material": "Reinforcing Mesh", "spec": "Ref 193 (2.4×6.0m)", "unit": "sheet", "price": 680, "min": 620, "max": 750, "month_change_pct": 1.0, "notes": "" },
+        { "material": "Roof Sheeting (Steel)", "spec": "0.5mm IBR Galvanized", "unit": "linear m", "price": 128, "min": 118, "max": 142, "month_change_pct": -0.3, "notes": "0.6m cover width. Galvanized Z275." },
+        { "material": "Roof Sheeting (Steel)", "spec": "0.5mm Corrugated Galvanized", "unit": "linear m", "price": 115, "min": 105, "max": 128, "month_change_pct": -0.4, "notes": "" },
+        { "material": "Aluminium Roof Sheeting", "spec": "0.6mm IBR", "unit": "linear m", "price": 215, "min": 198, "max": 240, "month_change_pct": 3.9, "notes": "Aluminium rod price +4.3% driving increase" },
+        { "material": "Steel Pipe", "spec": "50mm NB Schedule 40", "unit": "linear m", "price": 185, "min": 170, "max": 205, "month_change_pct": 0.5, "notes": "Seamless, SANS 657" },
+        { "material": "Steel Pipe", "spec": "100mm NB Schedule 40", "unit": "linear m", "price": 320, "min": 295, "max": 355, "month_change_pct": 0.4, "notes": "Seamless, SANS 657" },
+        { "material": "Copper Rod", "spec": "8mm Ø EC Grade", "unit": "ton", "price": 145000, "min": 138000, "max": 158000, "month_change_pct": 6.0, "notes": "Strong demand, global copper price rally" },
+        { "material": "Aluminium Rod", "spec": "9.5mm Ø EC Grade", "unit": "ton", "price": 72000, "min": 68000, "max": 78000, "month_change_pct": 4.3, "notes": "Import parity pricing" },
+        { "material": "Welding Electrodes", "spec": "E6013 3.15mm", "unit": "kg", "price": 85, "min": 78, "max": 95, "month_change_pct": 0.8, "notes": "" }
+      ]
+    },
+    {
+      "region": "开普敦",
+      "notes": "Western Cape — +5% coastal surcharge on Johannesburg base prices",
+      "items": [
+        { "material": "Structural Steel Sections", "spec": "Universal Column 203×203", "unit": "ton", "price": 19600, "min": 18700, "max": 21200, "month_change_pct": 0.9, "notes": "355JR grade. Coastal surcharge." },
+        { "material": "Reinforcing Steel", "spec": "Y16 High Tensile", "unit": "ton", "price": 15200, "min": 14500, "max": 16200, "month_change_pct": 1.4, "notes": "450 MPa grade. Coastal surcharge." },
+        { "material": "Roof Sheeting (Steel)", "spec": "0.5mm IBR Galvanized", "unit": "linear m", "price": 135, "min": 125, "max": 150, "month_change_pct": -0.2, "notes": "Coastal surcharge." },
+        { "material": "Aluminium Roof Sheeting", "spec": "0.6mm IBR", "unit": "linear m", "price": 226, "min": 208, "max": 252, "month_change_pct": 4.0, "notes": "Coastal demand for corrosion-resistant roofing." }
+      ]
+    },
+    {
+      "region": "德班",
+      "notes": "KwaZulu-Natal — -3% inland discount from Johannesburg base + port proximity advantage",
+      "items": [
+        { "material": "Structural Steel Sections", "spec": "Universal Beam 305×165", "unit": "ton", "price": 17750, "min": 16900, "max": 19200, "month_change_pct": 0.6, "notes": "355JR grade. Port proximity discount." },
+        { "material": "Reinforcing Steel", "spec": "Y16 High Tensile", "unit": "ton", "price": 14100, "min": 13400, "max": 15000, "month_change_pct": 1.1, "notes": "450 MPa grade. Port discount." }
+      ]
+    }
+  ]
+}

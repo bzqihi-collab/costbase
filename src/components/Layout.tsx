@@ -10,10 +10,10 @@ export default function Layout({ children, activePage, onNavigate }: {
   onNavigate: (page: Page) => void;
 }) {
   return (
-    <div className="flex h-screen flex-col bg-gray-950 text-gray-100">
-      <div className="flex flex-1 overflow-hidden">
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', background: 'var(--bg-root)' }}>
+      <div style={{ display: 'flex', flex: 1, overflow: 'hidden' }}>
         <Sidebar activePage={activePage} onNavigate={onNavigate} />
-        <main className="flex-1 overflow-hidden">
+        <main style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', background: 'var(--bg-root)' }}>
           {children}
         </main>
       </div>

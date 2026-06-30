@@ -1,87 +1,87 @@
 import React, { useEffect, useState } from 'react';
+import { useT } from '../i18n/LanguageContext';
 import type { Region } from '../../shared/types';
 
-interface Props {
+const iconMap: Record<string, string> = { country: '🌐', state: '🏛', city: '📍' };
+
+export default function RegionTree({ onSelect, selectedId }: {
   onSelect: (region: Region) => void;
   selectedId?: number;
-}
-
-export default function RegionTree({ onSelect, selectedId }: Props) {
+}) {
+  const { t, tr } = useT();
   const [tree, setTree] = useState<Region[]>([]);
   const [expanded, setExpanded] = useState<Set<number>>(new Set());
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    window.electronAPI.invoke('regions:tree').then((data) => setTree(data as Region[]));
+    window.electronAPI.invoke('regions:tree').then(d => setTree(d as Region[]));
   }, []);
 
-  // Build parent -> children map
-  const childrenMap = new Map<number | null, Region[]>();
+  const childMap = new Map<number | null, Region[]>();
   for (const r of tree) {
-    const key = r.parent_id;
-    if (!childrenMap.has(key)) childrenMap.set(key, []);
-    childrenMap.get(key)!.push(r);
+    const k = r.parent_id;
+    if (!childMap.has(k)) childMap.set(k, []);
+    childMap.get(k)!.push(r);
   }
 
-  // Filter by search
   const filtered = search
-    ? tree.filter((r) => r.name.toLowerCase().includes(search.toLowerCase()))
-    : childrenMap.get(null) || [];
+    ? tree.filter(r => r.name.toLowerCase().includes(search.toLowerCase()) || tr(r.name).toLowerCase().includes(search.toLowerCase()))
+    : childMap.get(null) || [];
 
-  const toggleExpand = (id: number) => {
-    setExpanded((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  };
+  const toggle = (id: number) => setExpanded(prev => {
+    const next = new Set(prev);
+    next.has(id) ? next.delete(id) : next.add(id);
+    return next;
+  });
 
-  const renderNode = (region: Region, depth: number = 0) => {
-    const children = childrenMap.get(region.id) || [];
-    const isExpanded = expanded.has(region.id);
-    const isSelected = region.id === selectedId;
-
+  const node = (r: Region, d = 0) => {
+    const kids = childMap.get(r.id) || [];
+    const open = expanded.has(r.id);
+    const sel = r.id === selectedId;
     return (
-      <div key={region.id}>
+      <div key={r.id}>
         <button
-          onClick={() => {
-            onSelect(region);
-            if (children.length > 0) toggleExpand(region.id);
+          onClick={() => { onSelect(r); if (kids.length) toggle(r.id); }}
+          style={{
+            display: 'flex', alignItems: 'center', gap: 6, width: '100%',
+            padding: '6px 8px', paddingLeft: d * 16 + 8, borderRadius: 'var(--radius-sm)',
+            border: 'none', cursor: 'pointer', fontSize: 13,
+            background: sel ? 'var(--accent-bg)' : 'transparent',
+            color: sel ? 'var(--accent-light)' : 'var(--text-secondary)',
+            fontWeight: sel ? 600 : 400,
+            textAlign: 'left' as const,
+            transition: 'background 0.1s',
           }}
-          className={`flex w-full items-center gap-1 rounded px-2 py-1 text-left text-sm transition-colors ${
-            isSelected ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700'
-          }`}
-          style={{ paddingLeft: `${depth * 16 + 8}px` }}
+          onMouseEnter={e => { if (!sel) e.currentTarget.style.background = 'var(--bg-hover)'; }}
+          onMouseLeave={e => { if (!sel) e.currentTarget.style.background = 'transparent'; }}
         >
-          {children.length > 0 && (
-            <span className="text-xs w-3">{isExpanded ? '▾' : '▸'}</span>
-          )}
-          {children.length === 0 && <span className="w-3" />}
-          <span className="text-xs opacity-50 w-8 text-right">
-            {region.level === 'country' ? '🌐' : region.level === 'state' ? '🏛' : '📍'}
+          <span style={{ width: 14, fontSize: 11, textAlign: 'center', flexShrink: 0 }}>
+            {kids.length ? (open ? '▾' : '▸') : ''}
           </span>
-          <span className="truncate">{region.name}</span>
+          <span style={{ fontSize: 12, flexShrink: 0 }}>{iconMap[r.level] || '📍'}</span>
+          <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{tr(r.name)}</span>
         </button>
-        {isExpanded && children.map((child) => renderNode(child, depth + 1))}
+        {open && kids.map(k => node(k, d + 1))}
       </div>
     );
   };
 
   return (
-    <div className="flex flex-col gap-2">
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
       <input
-        type="text"
-        placeholder="搜索国家/城市..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className="w-full rounded-md border border-gray-700 bg-gray-800 px-3 py-1.5 text-sm text-gray-200 placeholder-gray-500 focus:border-blue-500 focus:outline-none"
+        type="text" placeholder={t('filter.search_region')} value={search}
+        onChange={e => setSearch(e.target.value)}
+        style={{
+          padding: '7px 10px', borderRadius: 'var(--radius-sm)', background: 'var(--bg-input)',
+          border: '1px solid var(--border)', color: 'var(--text)', fontSize: 12.5, outline: 'none',
+        }}
+        onFocus={e => { e.currentTarget.style.borderColor = 'var(--accent)'; }}
+        onBlur={e => { e.currentTarget.style.borderColor = 'var(--border)'; }}
       />
-      <div className="max-h-64 overflow-y-auto">
+      <div style={{ maxHeight: 240, overflowY: 'auto' }}>
         {search
-          ? filtered.map((r) => renderNode(r, 0))
-          : (childrenMap.get(null) || []).map((r) => renderNode(r, 0))
-        }
+          ? filtered.map(r => node(r, 0))
+          : (childMap.get(null) || []).map(r => node(r, 0))}
       </div>
     </div>
   );

@@ -1,0 +1,49 @@
+{
+  "source": "Turner & Townsend — Global Construction Market Intelligence 2025/26",
+  "source_url": "https://marketintelligence.turnerandtownsend.com/",
+  "report_date": "2026-03-31",
+  "report_title": "Africa Construction Cost Benchmarks — Q1 2026 (GCMI + Fit-Out Cost Guide)",
+  "notes": "Industry-standard international construction cost benchmarks. Turner & Townsend survey covers 99 global markets. Cost per m² includes: materials, labour, preliminaries, overhead & profit. All values in USD for cross-country comparison. Local currency equivalents at Q1 2026 exchange rates.",
+  "data": [
+    {
+      "region": "约翰内斯堡",
+      "notes": "South Africa — competitive construction costs, moderate inflation (3.2% 2025). ZAR/USD ~18.5.",
+      "items": [
+        { "material": "General Construction", "spec": "Average, all building types", "unit": "USD/m²", "price": 1141, "min": 950, "max": 1350, "notes": "T&T GCMI 2025. ZAR equivalent: ~R21,100/m²." },
+        { "material": "Premium Office", "spec": "Grade A, high-spec fit-out", "unit": "USD/m²", "price": 2026, "min": 1800, "max": 2300, "notes": "T&T Fit-Out Cost Guide 2026. ZAR equivalent: ~R37,500/m²." },
+        { "material": "Residential", "spec": "Medium-rise apartment", "unit": "USD/m²", "price": 780, "min": 650, "max": 950, "notes": "T&T residential cost benchmark. ZAR: ~R14,400/m²." },
+        { "material": "Industrial", "spec": "Warehouse/distribution centre", "unit": "USD/m²", "price": 620, "min": 520, "max": 750, "notes": "T&T industrial benchmark. ZAR: ~R11,500/m²." },
+        { "material": "Preliminaries", "spec": "% of construction cost", "unit": "%", "price": 12, "min": 10, "max": 15, "notes": "T&T UAEMI/SSA benchmark. Larger projects ~12%, smaller ~15%." },
+        { "material": "Contractor Margin", "spec": "Mid-to-large projects", "unit": "%", "price": 10, "min": 8, "max": 12, "notes": "T&T profit margin benchmark for South Africa." }
+      ]
+    },
+    {
+      "region": "开普敦",
+      "notes": "South Africa — coastal premium over Johannesburg. ZAR/USD ~18.5.",
+      "items": [
+        { "material": "General Construction", "spec": "Average, all building types", "unit": "USD/m²", "price": 1171, "min": 980, "max": 1400, "notes": "T&T GCMI 2025. ZAR: ~R21,700/m². Coastal premium ~2.6%." },
+        { "material": "Residential", "spec": "Medium-rise apartment", "unit": "USD/m²", "price": 810, "min": 680, "max": 980, "notes": "T&T benchmark. ZAR: ~R15,000/m²." }
+      ]
+    },
+    {
+      "region": "拉各斯",
+      "notes": "Nigeria — Africa's most expensive construction market. Extreme inflation (25-45%). NGN/USD ~1,550. Turner & Townsend Lagos office opened 2024.",
+      "items": [
+        { "material": "General Construction", "spec": "Average, all building types", "unit": "USD/m²", "price": 1183, "min": 900, "max": 1600, "notes": "T&T GCMI 2025. NGN: ~₦1,830,000/m². Extreme volatility." },
+        { "material": "Premium Office", "spec": "Grade A, high-spec fit-out", "unit": "USD/m²", "price": 2718, "min": 2300, "max": 3300, "notes": "T&T Fit-Out Cost Guide 2026. Africa's most expensive: $2,718/m²." },
+        { "material": "Residential", "spec": "Medium-rise apartment", "unit": "USD/m²", "price": 850, "min": 650, "max": 1200, "notes": "T&T benchmark. High variance due to FX." },
+        { "material": "Contractor Margin", "spec": "Mid-to-large projects", "unit": "%", "price": 15, "min": 12, "max": 20, "notes": "Higher risk premium in Nigeria market." }
+      ]
+    },
+    {
+      "region": "内罗毕",
+      "notes": "Kenya — most affordable of the four tracked African markets. KES/USD ~129.",
+      "items": [
+        { "material": "General Construction", "spec": "Average, all building types", "unit": "USD/m²", "price": 834, "min": 700, "max": 1000, "notes": "T&T GCMI 2025. KES: ~KSh 107,600/m²." },
+        { "material": "Premium Office", "spec": "Grade A, high-spec fit-out", "unit": "USD/m²", "price": 2081, "min": 1800, "max": 2400, "notes": "T&T Fit-Out Cost Guide 2026. KES: ~KSh 268,500/m²." },
+        { "material": "Residential", "spec": "Medium-rise apartment", "unit": "USD/m²", "price": 550, "min": 450, "max": 680, "notes": "T&T benchmark" },
+        { "material": "Contractor Margin", "spec": "Mid-to-large projects", "unit": "%", "price": 10, "min": 8, "max": 12, "notes": "" }
+      ]
+    }
+  ]
+}
