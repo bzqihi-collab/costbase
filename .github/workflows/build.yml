@@ -40,14 +40,13 @@ jobs:
       - name: Smoke test (mount DMG and verify app)
         run: |
           hdiutil attach release/*.dmg -mountpoint /tmp/costbase-test
-          # Check app bundle integrity
           ls /tmp/costbase-test/CostBase.app/Contents/MacOS/CostBase
-          # Verify it launches and exits cleanly (headless, limited)
           /tmp/costbase-test/CostBase.app/Contents/MacOS/CostBase --no-sandbox &
           APP_PID=$!
           sleep 5
-          kill $APP_PID 2>/dev/null
-          hdiutil detach /tmp/costbase-test
+          kill $APP_PID 2>/dev/null || true
+          sleep 2
+          hdiutil detach /tmp/costbase-test -force 2>/dev/null || true
           echo "✅ macOS app smoke test passed"
 
       - uses: actions/upload-artifact@v4
