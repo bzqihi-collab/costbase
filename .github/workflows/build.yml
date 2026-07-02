@@ -33,7 +33,7 @@ jobs:
         with:
           node-version: 22
 
-      - run: rm -f package-lock.json && npm install
+      - run: rm -f package-lock.json && npm install --ignore-scripts
       - run: npx vite build
       - run: npx electron-builder --mac --publish never
 
